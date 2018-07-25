@@ -7,13 +7,19 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { WelcomePage } from '../pages/welcome/welcome';
-
+import { CreateGroupPage } from '../pages/create-group/create-group';
+import { JoinGroupPage } from '../pages/join-group/join-group';
+import { JoinOrCreateGroupPage } from '../pages/join-or-create-group/join-or-create-group';
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
-    WelcomePage
+    WelcomePage,
+    CreateGroupPage,
+    JoinGroupPage,
+    JoinOrCreateGroupPage
+
   ],
   imports: [
     BrowserModule,
@@ -23,7 +29,10 @@ import { WelcomePage } from '../pages/welcome/welcome';
   entryComponents: [
     MyApp,
     HomePage,
-    WelcomePage
+    WelcomePage,
+    CreateGroupPage,
+    JoinGroupPage,
+    JoinOrCreateGroupPage
   ],
   providers: [
     StatusBar,
