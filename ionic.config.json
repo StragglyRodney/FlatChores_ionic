@@ -1,6 +1,5 @@
 {
-  "name": "crudenrodn-starter",
-  "app_id": "",
-  "type": "ionic-angular",
-  "integrations": {}
+  "name": "FlatChores",
+  "integrations": {},
+  "type": "ionic-angular"
 }
