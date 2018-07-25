@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import { User } from '../../models/user';
 import { AngularFireAuth } from "angularfire2/auth";
+import { WelcomePage } from '../welcome/welcome';
+import { HomePage } from '../home/home';
 
 /**
  * Generated class for the RegisterPage page.
@@ -25,7 +27,11 @@ export class RegisterPage {
   async register(user: User) {
     try {
       const result = await this.afAuth.auth.createUserWithEmailAndPassword(user.email, user.password)
-      console.log(result)
+      
+      /**
+       * If successfully registered then alert the user and
+       * send them back to the login screen
+       */
       if (result) {
         let alert = this.alertCtrl.create({
           title: 'Successfully Registered!',
@@ -33,10 +39,10 @@ export class RegisterPage {
         });
         alert.present();
       }
+      this.navCtrl.push(HomePage)
     }
     catch(e) {
       console.error(e)
     } 
   }
-
 }

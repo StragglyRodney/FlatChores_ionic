@@ -6,9 +6,16 @@ import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angu
   selector: 'page-welcome',
   templateUrl: 'welcome.html',
 })
+/**
+ *  TODO: Make this page a firt time login where you create your profile e.g
+ * 
+ *  username:
+ *  profile pic:
+ *  chore preferences:
+ *  ect...
+ */
 export class WelcomePage {
   
-  // The user that is currently logged in
   email: string;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private alertCtrl: AlertController) {
