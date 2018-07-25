@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
+import { CreateGroupPage } from '../create-group/create-group';
+import { JoinGroupPage } from '../join-group/join-group';
 /**
  * Generated class for the JoinOrCreateGroupPage page.
  *
@@ -15,6 +16,8 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class JoinOrCreateGroupPage {
 
+  username: string;
+  
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
@@ -22,4 +25,15 @@ export class JoinOrCreateGroupPage {
     console.log('ionViewDidLoad JoinOrCreateGroupPage');
   }
 
+  createGroup() {
+    this.navCtrl.push(CreateGroupPage, {
+      name: this.username
+    });
+  }
+
+  joinGroup() {
+    this.navCtrl.push(JoinGroupPage, {
+      name: this.username
+    });
+  }
 }

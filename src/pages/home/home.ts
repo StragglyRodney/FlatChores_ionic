@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { WelcomePage } from '../welcome/welcome';
+import { JoinOrCreateGroupPage } from '../join-or-create-group/join-or-create-group';
 
 @Component({
   selector: 'page-home',
@@ -16,7 +17,7 @@ export class HomePage {
   }
 
   login() {
-    this.navCtrl.push(WelcomePage, {
+    this.navCtrl.push(JoinOrCreateGroupPage, {
       name: this.username
     });
   }

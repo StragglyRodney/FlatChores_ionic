@@ -10,6 +10,8 @@ import { WelcomePage } from '../pages/welcome/welcome';
 import { CreateGroupPage } from '../pages/create-group/create-group';
 import { JoinGroupPage } from '../pages/join-group/join-group';
 import { JoinOrCreateGroupPage } from '../pages/join-or-create-group/join-or-create-group';
+import { AddUserPage} from '../pages/add-user/add-user';
+import { DanielsPartPage } from '../pages/daniels-part/daniels-part';
 
 @NgModule({
   declarations: [
@@ -18,8 +20,9 @@ import { JoinOrCreateGroupPage } from '../pages/join-or-create-group/join-or-cre
     WelcomePage,
     CreateGroupPage,
     JoinGroupPage,
-    JoinOrCreateGroupPage
-
+    JoinOrCreateGroupPage,
+    AddUserPage,
+    DanielsPartPage
   ],
   imports: [
     BrowserModule,
@@ -32,7 +35,9 @@ import { JoinOrCreateGroupPage } from '../pages/join-or-create-group/join-or-cre
     WelcomePage,
     CreateGroupPage,
     JoinGroupPage,
-    JoinOrCreateGroupPage
+    JoinOrCreateGroupPage,
+    AddUserPage,
+    DanielsPartPage
   ],
   providers: [
     StatusBar,
