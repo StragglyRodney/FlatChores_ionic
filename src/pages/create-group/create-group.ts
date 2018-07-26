@@ -20,7 +20,11 @@ import { DanielsPartPage } from '../daniels-part/daniels-part';
 export class CreateGroupPage {
 
   items=[];
+  /**
+   * 
+   */
   group=[];
+
   listOfUsers= [
     ['John',"john@gmail.com","../../assets/imgs/images/john.png","I like to clean"], 
     ['Andy',"andy@gmail.com","../../assets/imgs/images/andy.png","I like vacuuming"],
