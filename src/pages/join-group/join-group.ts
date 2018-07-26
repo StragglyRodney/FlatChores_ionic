@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { DanielsPartPage } from '../daniels-part/daniels-part';
 import { AlertController } from 'ionic-angular';
+import { isTrueProperty } from 'ionic-angular/umd/util/util';
 
 /**
  * Generated class for the JoinGroupPage page.
@@ -38,18 +39,23 @@ export class JoinGroupPage {
    * added to this group within the database before displaying the main page of the app
    * */
   joinGroup(){
+    var match: boolean=false;
       this.group.forEach(element => {
         if(element==this.inputValue){
+          match=true;
           this.navCtrl.push(DanielsPartPage, {
           });
         }
       });
+      if(!match){
       const alert = this.alertCtrl.create({
         title: 'Group ID does not exist!',
         subTitle: 'Please enter a valid group ID, you can aquire this from the existing users within the group you are trying to join',
         buttons: ['OK']
       });
       alert.present();
+    }
+    
   }
 
 }
