@@ -2,8 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { DanielsPartPage } from '../daniels-part/daniels-part';
 import { AlertController } from 'ionic-angular';
-import { isTrueProperty } from 'ionic-angular/umd/util/util';
-
+import { LoadingController } from 'ionic-angular';
 /**
  * Generated class for the JoinGroupPage page.
  *
@@ -27,7 +26,7 @@ export class JoinGroupPage {
   inputValue: string = "";
 
 
-  constructor(public navCtrl: NavController, public navParams: NavParams,public alertCtrl: AlertController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,public alertCtrl: AlertController, public loadingCtrl: LoadingController) {
   }
 
   ionViewDidLoad() {
@@ -42,7 +41,15 @@ export class JoinGroupPage {
     var match: boolean=false;
       this.group.forEach(element => {
         if(element==this.inputValue){
+
           match=true;
+
+          const loader = this.loadingCtrl.create({
+            content: "Please wait...",
+            duration: 2000
+          });
+          loader.present();
+      
           this.navCtrl.push(DanielsPartPage, {
           });
         }
