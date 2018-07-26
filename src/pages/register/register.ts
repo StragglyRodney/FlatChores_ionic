@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController, ToastController } from 'ionic-angular';
 import { User } from '../../models/user';
 import { AngularFireAuth } from "angularfire2/auth";
 import { WelcomePage } from '../welcome/welcome';
@@ -21,10 +21,16 @@ export class RegisterPage {
 
   user = {} as User; 
 
-  constructor(private alertCtrl: AlertController, private afAuth: AngularFireAuth, public navCtrl: NavController, public navParams: NavParams) {
+  constructor(private toastCtrl: ToastController, private alertCtrl: AlertController, private afAuth: AngularFireAuth, public navCtrl: NavController, public navParams: NavParams) {
   }
 
   async register(user: User) {
+    // prevent empty input which caused weird errors with firebase
+    if (user.email == null || user.password == null) {
+      this.showToast("Register details are empty")
+      return
+    }
+
     try {
       const result = await this.afAuth.auth.createUserWithEmailAndPassword(user.email, user.password)
       
@@ -39,10 +45,18 @@ export class RegisterPage {
         });
         alert.present();
       }
-      this.navCtrl.push(HomePage)
+      this.navCtrl.setRoot(HomePage)
     }
     catch(e) {
-      console.error(e)
+      this.showToast("Invalid register details");
     } 
+  }
+
+  showToast(message) {
+    let toast = this.toastCtrl.create({
+      message: message,
+      duration: 3000
+    });
+    toast.present();
   }
 }
