@@ -12,6 +12,12 @@ import { HomePage } from '../pages/home/home';
 import { WelcomePage } from '../pages/welcome/welcome';
 import { RegisterPage } from "../pages/register/register";
 import { FIREBASE_CONFIG } from './app.firebase.config';
+import { MyAccountPage } from '../pages/my-account/my-account';
+import { LogoutPage } from '../pages/logout/logout';
+import { ProfilePage } from '../pages/profile/profile';
+import { Chores } from '../pages/jobs/jobs';
+import { ListPage } from '../pages/list/list';
+import { HttpModule } from '@angular/http'
 
 
 @NgModule({
@@ -20,7 +26,12 @@ import { FIREBASE_CONFIG } from './app.firebase.config';
     TitlePage,
     HomePage,
     WelcomePage,
-    RegisterPage
+    RegisterPage,
+    Chores,
+    ListPage,
+    MyAccountPage,
+    LogoutPage,
+    ProfilePage
   ],
   imports: [
     BrowserModule,
@@ -34,7 +45,12 @@ import { FIREBASE_CONFIG } from './app.firebase.config';
     TitlePage,
     HomePage, 
     WelcomePage,
-    RegisterPage
+    RegisterPage,
+    Chores,
+    ListPage,
+    MyAccountPage,
+    LogoutPage,
+    ProfilePage
   ],
   providers: [
     StatusBar,

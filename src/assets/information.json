@@ -1,0 +1,50 @@
+{
+    "items": [
+        {
+            "name": "Kitchen",
+            "children": [
+                {
+                    "name": "Daniel",
+                    "information": "Vaccuum and Mop floor, Clean Microwave, Wipe all surfaces",
+                    "due": "This sunday"
+                }
+                
+            ]
+        },
+        {
+            "name": "Bathroom",
+            "children": [
+                    {
+                    
+                        "name": "Andy",
+                        "information": "Mop floors, Clean shower, wipe basin, check handwash",
+                        "due": "This sunday"
+                    }
+                        
+                ]
+        },
+        {
+            "name": "Lounge",
+            "children": [
+                {
+                    "name": "Rodney",
+                    "information": "Vaccuum carpet, tidy stuff",
+                    "due": "This sunday"
+                }
+                
+            ]
+        },
+        {
+            "name": "Laundry",
+            "children": [
+                    {
+                    
+                        "name": "Bob",
+                        "information": "Mop floors, Dry tea towels",
+                        "due": "This sunday"
+                    }
+                        
+                ]
+        }
+    ]
+}
