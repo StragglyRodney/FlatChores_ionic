@@ -10,8 +10,10 @@ import { MyApp } from './app.component';
 import { TitlePage } from '../pages/title/title';
 import { HomePage } from '../pages/home/home';
 import { WelcomePage } from '../pages/welcome/welcome';
+import { ProfileCreatePage } from '../pages/profile-create/profile-create';
 import { RegisterPage } from "../pages/register/register";
 import { FIREBASE_CONFIG } from './app.firebase.config';
+import { AngularFireDatabaseModule } from '../../node_modules/angularfire2/database';
 
 
 @NgModule({
@@ -20,13 +22,15 @@ import { FIREBASE_CONFIG } from './app.firebase.config';
     TitlePage,
     HomePage,
     WelcomePage,
+    ProfileCreatePage,
     RegisterPage
   ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
     AngularFireModule.initializeApp(FIREBASE_CONFIG),
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    AngularFireDatabaseModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -34,6 +38,7 @@ import { FIREBASE_CONFIG } from './app.firebase.config';
     TitlePage,
     HomePage, 
     WelcomePage,
+    ProfileCreatePage,
     RegisterPage
   ],
   providers: [

@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController, ToastController } from 'ionic-angular';
+import { AngularFireDatabase, AngularFireObject } from 'angularfire2/database';
+import { Profile } from '../../models/profile';
+import { AngularFireAuth } from '../../../node_modules/angularfire2/auth';
 
 @IonicPage()
 @Component({
@@ -16,17 +19,27 @@ import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angu
  */
 export class WelcomePage {
   
-  email: string;
+  profileData: AngularFireObject<Profile>
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private alertCtrl: AlertController) {
-    this.email = navParams.get('email');
+  constructor(private toast: ToastController, private afAuth: AngularFireAuth, private afDatabase: AngularFireDatabase, public navCtrl: NavController, public navParams: NavParams, private alertCtrl: AlertController) {
+  }
 
-    // alert when page is loaded
-    let alert = this.alertCtrl.create({
-      title: 'Welcome!',
-      subTitle: 'Take a look around, ' + this.email,
-      buttons: ['Sure!']
-    });
-    alert.present();
+  ionViewWillLoad() {
+    this.afAuth.authState.take(1).subscribe(data => {
+      if (data && data.email && data.uid) {
+        this.toast.create({
+          message: `Welcome to FlatChores, ${data.email}`,
+          duration: 3000
+        }).present()
+
+        this.profileData = this.afDatabase.object(`profile/${data.uid}`)
+      }
+      else {
+        this.toast.create({
+          message: `Could not authenticate user`,
+          duration: 3000
+        }).present()
+      }
+    })
   }
 }

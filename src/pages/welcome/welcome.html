@@ -7,6 +7,7 @@
 
 
 <ion-content padding>
-  <h1>Welcome to my SWEN 325 App!</h1>
-  <p>You must be: {{email}}</p>
+  <p>Username: {{(profileData | async)?.username}}</p>
+  <p>First Name: {{(profileData | async)?.firstname}}</p>
+  <p>Last Name: {{(profileData | async)?.lastname}}</p>
 </ion-content>
