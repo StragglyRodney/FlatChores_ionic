@@ -3,7 +3,6 @@ import { Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
-import { HomePage } from '../pages/home/home';
 import { CreateFlatPage } from '../pages/create-flat/create-flat';
 import { JoinFlatPage } from '../pages/join-flat/join-flat';
 import { JoinOrCreateFlatPage } from '../pages/join-or-create-flat/join-or-create-flat';
