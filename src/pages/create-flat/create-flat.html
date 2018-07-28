@@ -1,5 +1,5 @@
 <!--
-  Generated template for the CreateGroupPage page.
+  Generated template for the CreateFlatPage page.
 
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
@@ -24,9 +24,9 @@
           <button ion-button clear item-end (click)="addUser(item)">Add</button>
         </ion-item>
       </ion-list>
-    <div><h2>Your Group</h2></div>
+    <div><h2>YOUR FLAT</h2></div>
       <ion-list>
-          <ion-item *ngFor="let item of group" >
+          <ion-item *ngFor="let item of flat" >
             <ion-thumbnail item-start>
               <img src="{{item[2]}}">
             </ion-thumbnail>
@@ -37,6 +37,6 @@
           </ion-item>
         </ion-list>
 
-  <button ion-button full (click)="createGroup()">CREATE GROUP</button>
+  <button ion-button full (click)="createFlat()">CREATE FLAT</button>
 
 </ion-content>

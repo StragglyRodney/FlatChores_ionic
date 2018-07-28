@@ -7,9 +7,9 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { WelcomePage } from '../pages/welcome/welcome';
-import { CreateGroupPage } from '../pages/create-group/create-group';
-import { JoinGroupPage } from '../pages/join-group/join-group';
-import { JoinOrCreateGroupPage } from '../pages/join-or-create-group/join-or-create-group';
+import { CreateFlatPage } from '../pages/create-flat/create-flat';
+import { JoinFlatPage } from '../pages/join-flat/join-flat';
+import { JoinOrCreateFlatPage } from '../pages/join-or-create-flat/join-or-create-flat';
 import { AddUserPage} from '../pages/add-user/add-user';
 import { DanielsPartPage } from '../pages/daniels-part/daniels-part';
 
@@ -18,9 +18,9 @@ import { DanielsPartPage } from '../pages/daniels-part/daniels-part';
     MyApp,
     HomePage,
     WelcomePage,
-    CreateGroupPage,
-    JoinGroupPage,
-    JoinOrCreateGroupPage,
+    CreateFlatPage,
+    JoinFlatPage,
+    JoinOrCreateFlatPage,
     AddUserPage,
     DanielsPartPage
   ],
@@ -33,9 +33,9 @@ import { DanielsPartPage } from '../pages/daniels-part/daniels-part';
     MyApp,
     HomePage,
     WelcomePage,
-    CreateGroupPage,
-    JoinGroupPage,
-    JoinOrCreateGroupPage,
+    CreateFlatPage,
+    JoinFlatPage,
+    JoinOrCreateFlatPage,
     AddUserPage,
     DanielsPartPage
   ],

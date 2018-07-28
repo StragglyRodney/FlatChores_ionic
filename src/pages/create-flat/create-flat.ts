@@ -6,7 +6,7 @@ import { LoadingController } from 'ionic-angular';
 import { DanielsPartPage } from '../daniels-part/daniels-part';
 
 /**
- * Generated class for the CreateGroupPage page.
+ * Generated class for the CreateFlatPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
@@ -14,16 +14,16 @@ import { DanielsPartPage } from '../daniels-part/daniels-part';
 
 @IonicPage()
 @Component({
-  selector: 'page-create-group',
-  templateUrl: 'create-group.html',
+  selector: 'page-create-flat',
+  templateUrl: 'create-flat.html',
 })
-export class CreateGroupPage {
+export class CreateFlatPage {
 
   items=[];
   /**
    * 
    */
-  group=[];
+  flat=[];
 
   listOfUsers= [
     ['John',"john@gmail.com","../../assets/imgs/images/john.png","I like to clean"], 
@@ -43,10 +43,10 @@ export class CreateGroupPage {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad CreateGroupPage');
+    console.log('ionViewDidLoad CreateFlatPage');
   }
 
-  createGroup(){
+  createFlat(){
 
       this.loadingCtrl.create({
         content: 'Please wait...',
@@ -56,7 +56,7 @@ export class CreateGroupPage {
       }).present();
       
       this.navCtrl.push(DanielsPartPage, {
-        group:this.group
+        flat:this.flat
        });
 
   }
@@ -66,14 +66,14 @@ export class CreateGroupPage {
     if(index > -1){
       this.listOfUsers.splice(index, 1);
     }
-    this.group.push(item);
+    this.flat.push(item);
     this.items.length=0;
   }
 
   removeUser(item){
-    let index = this.group.indexOf(item);
+    let index = this.flat.indexOf(item);
     if(index > -1){
-      this.group.splice(index, 1);
+      this.flat.splice(index, 1);
     }
     this.listOfUsers.push(item);
     this.items.length=0;

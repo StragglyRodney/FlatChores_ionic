@@ -4,7 +4,7 @@ import { DanielsPartPage } from '../daniels-part/daniels-part';
 import { AlertController } from 'ionic-angular';
 import { LoadingController } from 'ionic-angular';
 /**
- * Generated class for the JoinGroupPage page.
+ * Generated class for the JoinflatPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
@@ -12,16 +12,16 @@ import { LoadingController } from 'ionic-angular';
 
 @IonicPage()
 @Component({
-  selector: 'page-join-group',
-  templateUrl: 'join-group.html',
+  selector: 'page-join-flat',
+  templateUrl: 'join-flat.html',
 })
-export class JoinGroupPage {
+export class JoinFlatPage {
 
   /**
-   * group is simply the list of group ids, this should be replaced with the real time group ids
+   * flat is simply the list of flat ids, this should be replaced with the real time flat ids
    * within the database.
    */ 
-  group = ["group1","group2","group3","group4"]
+  flat = ["flat1","flat2","flat3","flat4"]
 
   inputValue: string = "";
 
@@ -30,16 +30,16 @@ export class JoinGroupPage {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad JoinGroupPage');
+    console.log('ionViewDidLoad JoinFlatPage');
   }
 
   /**
-   * JoinGroup checks inputValue for exisitng groups, if there is a match the user should then be 
-   * added to this group within the database before displaying the main page of the app
+   * Joinflat checks inputValue for exisitng flats, if there is a match the user should then be 
+   * added to this flat within the database before displaying the main page of the app
    * */
-  joinGroup(){
+  joinFlat(){
     var match: boolean=false;
-      this.group.forEach(element => {
+      this.flat.forEach(element => {
         if(element==this.inputValue){
 
           match=true;
@@ -56,8 +56,8 @@ export class JoinGroupPage {
       });
       if(!match){
       const alert = this.alertCtrl.create({
-        title: 'Group ID does not exist!',
-        subTitle: 'Please enter a valid group ID, you can aquire this from the existing users within the group you are trying to join',
+        title: 'flat ID does not exist!',
+        subTitle: 'Please enter a valid flat ID, you can aquire this from the existing users within the flat you are trying to join',
         buttons: ['OK']
       });
       alert.present();

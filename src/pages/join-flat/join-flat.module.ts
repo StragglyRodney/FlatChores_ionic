@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { IonicPageModule } from 'ionic-angular';
-import { JoinGroupPage } from './join-group';
+import { JoinFlatPage } from './join-flat';
 
 @NgModule({
   declarations: [
-    JoinGroupPage,
+    JoinFlatPage,
   ],
   imports: [
-    IonicPageModule.forChild(JoinGroupPage),
+    IonicPageModule.forChild(JoinFlatPage),
   ],
 })
-export class JoinGroupPageModule {}
+export class JoinFlatPageModule {}

@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { CreateGroupPage } from '../create-group/create-group';
-import { JoinGroupPage } from '../join-group/join-group';
+import { CreateFlatPage } from '../create-flat/create-flat';
+import { JoinFlatPage } from '../join-flat/join-flat';
 /**
- * Generated class for the JoinOrCreateGroupPage page.
+ * Generated class for the JoinOrCreateflatPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
@@ -11,10 +11,10 @@ import { JoinGroupPage } from '../join-group/join-group';
 
 @IonicPage()
 @Component({
-  selector: 'page-join-or-create-group',
-  templateUrl: 'join-or-create-group.html',
+  selector: 'page-join-or-create-flat',
+  templateUrl: 'join-or-create-flat.html',
 })
-export class JoinOrCreateGroupPage {
+export class JoinOrCreateFlatPage {
 
   username: string;
   
@@ -22,17 +22,17 @@ export class JoinOrCreateGroupPage {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad JoinOrCreateGroupPage');
+    console.log('ionViewDidLoad JoinOrCreateFlatPage');
   }
 
-  createGroup() {
-    this.navCtrl.push(CreateGroupPage, {
+  createFlat() {
+    this.navCtrl.push(CreateFlatPage, {
       name: this.username
     });
   }
 
-  joinGroup() {
-    this.navCtrl.push(JoinGroupPage, {
+  joinFlat() {
+    this.navCtrl.push(JoinFlatPage, {
       name: this.username
     });
   }
