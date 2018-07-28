@@ -6,7 +6,6 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { HomePage } from '../pages/home/home';
 import { CreateFlatPage } from '../pages/create-flat/create-flat';
 import { JoinFlatPage } from '../pages/join-flat/join-flat';
-import { DanielsPartPage } from '../pages/daniels-part/daniels-part';
 import { JoinOrCreateFlatPage } from '../pages/join-or-create-flat/join-or-create-flat';
 
 @Component({

@@ -16,7 +16,7 @@ import { JoinFlatPage } from '../join-flat/join-flat';
 })
 export class JoinOrCreateFlatPage {
 
-  username: string;
+  FlatMatename: string;
   
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
@@ -27,13 +27,13 @@ export class JoinOrCreateFlatPage {
 
   createFlat() {
     this.navCtrl.push(CreateFlatPage, {
-      name: this.username
+      name: this.FlatMatename
     });
   }
 
   joinFlat() {
     this.navCtrl.push(JoinFlatPage, {
-      name: this.username
+      name: this.FlatMatename
     });
   }
 }

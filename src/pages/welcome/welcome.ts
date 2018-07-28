@@ -8,16 +8,16 @@ import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angu
 })
 export class WelcomePage {
   
-  // The user that is currently logged in
-  username: string;
+  // The FlatMate that is currently logged in
+  FlatMatename: string;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private alertCtrl: AlertController) {
-    this.username = navParams.get('name');
+    this.FlatMatename = navParams.get('name');
 
     // alert when page is loaded
     let alert = this.alertCtrl.create({
       title: 'Welcome!',
-      subTitle: 'Take a look around, ' + this.username,
+      subTitle: 'Take a look around, ' + this.FlatMatename,
       buttons: ['Sure!']
     });
     alert.present();

@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, Item, Popover } from 'ionic-angular';
 
 /**
- * Generated class for the AddUserPage page.
+ * Generated class for the AddFlatMatePage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
@@ -10,19 +10,19 @@ import { IonicPage, NavController, NavParams, Item, Popover } from 'ionic-angula
 
 @IonicPage()
 @Component({
-  selector: 'page-add-user',
-  templateUrl: 'add-user.html',
+  selector: 'page-add-FlatMate',
+  templateUrl: 'add-FlatMate.html',
 })
-export class AddUserPage {
+export class AddFlatMatePage {
 
-  user:Item;
+  FlatMate:Item;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
-    this.user=navParams.get("user");
+    this.FlatMate=navParams.get("FlatMate");
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad AddUserPage');
+    console.log('ionViewDidLoad AddFlatMatePage');
   }
 
 }

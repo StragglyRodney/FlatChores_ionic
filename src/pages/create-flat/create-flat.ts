@@ -1,9 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, Item } from 'ionic-angular';
 import { PopoverController } from 'ionic-angular';
-import { AddUserPage} from '../add-user/add-user';
+import { AddFlatMatePage} from '../add-FlatMate/add-FlatMate';
 import { LoadingController } from 'ionic-angular';
-import { DanielsPartPage } from '../daniels-part/daniels-part';
 
 /**
  * Generated class for the CreateFlatPage page.
@@ -25,7 +24,7 @@ export class CreateFlatPage {
    */
   flat=[];
 
-  listOfUsers= [
+  listOfFlatMates= [
     ['John',"john@gmail.com","../../assets/imgs/images/john.png","I like to clean"], 
     ['Andy',"andy@gmail.com","../../assets/imgs/images/andy.png","I like vacuuming"],
     ['Emma',"emma@gmail.com","../../assets/imgs/images/emma.png", "I hate all chores"],
@@ -55,40 +54,40 @@ export class CreateFlatPage {
         
       }).present();
       
-      this.navCtrl.push(DanielsPartPage, {
+      this.navCtrl.push(CreateFlatPage, {
         flat:this.flat
        });
 
   }
 
-  addUser(item){
-    let index = this.listOfUsers.indexOf(item);
+  addFlatMate(item){
+    let index = this.listOfFlatMates.indexOf(item);
     if(index > -1){
-      this.listOfUsers.splice(index, 1);
+      this.listOfFlatMates.splice(index, 1);
     }
     this.flat.push(item);
     this.items.length=0;
   }
 
-  removeUser(item){
+  removeFlatMate(item){
     let index = this.flat.indexOf(item);
     if(index > -1){
       this.flat.splice(index, 1);
     }
-    this.listOfUsers.push(item);
+    this.listOfFlatMates.push(item);
     this.items.length=0;
   }
 
   itemSelected(item: Item) {
-      const popover = this.popoverCtrl.create(AddUserPage,{
-        user: item
+      const popover = this.popoverCtrl.create(AddFlatMatePage,{
+        FlatMate: item
      });
      popover.present();
   }
 
   getItems(ev){
     // Reset items back to all of the items
-    this.items=this.listOfUsers;
+    this.items=this.listOfFlatMates;
     // set val to the value of the ev target
     var val = ev.target.value;
     // if the value is an empty string don't filter the items

@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { DanielsPartPage } from '../daniels-part/daniels-part';
 import { AlertController } from 'ionic-angular';
 import { LoadingController } from 'ionic-angular';
 /**
@@ -34,7 +33,7 @@ export class JoinFlatPage {
   }
 
   /**
-   * Joinflat checks inputValue for exisitng flats, if there is a match the user should then be 
+   * Joinflat checks inputValue for exisitng flats, if there is a match the FlatMate should then be 
    * added to this flat within the database before displaying the main page of the app
    * */
   joinFlat(){
@@ -50,14 +49,14 @@ export class JoinFlatPage {
           });
           loader.present();
       
-          this.navCtrl.push(DanielsPartPage, {
+          this.navCtrl.push(JoinFlatPage, {
           });
         }
       });
       if(!match){
       const alert = this.alertCtrl.create({
         title: 'flat ID does not exist!',
-        subTitle: 'Please enter a valid flat ID, you can aquire this from the existing users within the flat you are trying to join',
+        subTitle: 'Please enter a valid flat ID, you can aquire this from the existing FlatMates within the flat you are trying to join',
         buttons: ['OK']
       });
       alert.present();

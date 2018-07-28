@@ -9,7 +9,7 @@ import { JoinOrCreateFlatPage } from '../join-or-create-flat/join-or-create-flat
 })
 export class HomePage {
 
-  username: string;
+  FlatMatename: string;
   password: string;
 
   constructor(public navCtrl: NavController) {
@@ -18,7 +18,7 @@ export class HomePage {
 
   login() {
     this.navCtrl.push(JoinOrCreateFlatPage, {
-      name: this.username
+      name: this.FlatMatename
     });
   }
 }

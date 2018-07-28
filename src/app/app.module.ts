@@ -10,8 +10,7 @@ import { WelcomePage } from '../pages/welcome/welcome';
 import { CreateFlatPage } from '../pages/create-flat/create-flat';
 import { JoinFlatPage } from '../pages/join-flat/join-flat';
 import { JoinOrCreateFlatPage } from '../pages/join-or-create-flat/join-or-create-flat';
-import { AddUserPage} from '../pages/add-user/add-user';
-import { DanielsPartPage } from '../pages/daniels-part/daniels-part';
+import { AddFlatMatePage} from '../pages/add-FlatMate/add-FlatMate';
 
 @NgModule({
   declarations: [
@@ -21,8 +20,7 @@ import { DanielsPartPage } from '../pages/daniels-part/daniels-part';
     CreateFlatPage,
     JoinFlatPage,
     JoinOrCreateFlatPage,
-    AddUserPage,
-    DanielsPartPage
+    AddFlatMatePage
   ],
   imports: [
     BrowserModule,
@@ -36,8 +34,7 @@ import { DanielsPartPage } from '../pages/daniels-part/daniels-part';
     CreateFlatPage,
     JoinFlatPage,
     JoinOrCreateFlatPage,
-    AddUserPage,
-    DanielsPartPage
+    AddFlatMatePage
   ],
   providers: [
     StatusBar,
