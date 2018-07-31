@@ -19,7 +19,7 @@ export class HomePage {
   }
 
   login(user: User) {
-    // prevent empty input which caused weird errors with firebase
+    // prevents empty input which caused weird errors with firebase
     if (user.email == null || user.password == null) {
       this.showToast("Login details are empty")
       return
