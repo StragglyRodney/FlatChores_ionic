@@ -15,6 +15,11 @@ import { RegisterPage } from "../pages/register/register";
 import { FIREBASE_CONFIG } from './app.firebase.config';
 import { AngularFireDatabaseModule } from '../../node_modules/angularfire2/database';
 
+import { CreateFlatPage } from '../pages/create-flat/create-flat';
+import { JoinFlatPage } from '../pages/join-flat/join-flat';
+import { JoinOrCreateFlatPage } from '../pages/join-or-create-flat/join-or-create-flat';
+import { AddFlatMatePage} from '../pages/add-FlatMate/add-FlatMate';
+
 
 @NgModule({
   declarations: [
@@ -23,7 +28,11 @@ import { AngularFireDatabaseModule } from '../../node_modules/angularfire2/datab
     HomePage,
     WelcomePage,
     ProfileCreatePage,
-    RegisterPage
+    RegisterPage,
+    CreateFlatPage,
+    JoinFlatPage,
+    JoinOrCreateFlatPage,
+    AddFlatMatePage
   ],
   imports: [
     BrowserModule,
@@ -39,7 +48,11 @@ import { AngularFireDatabaseModule } from '../../node_modules/angularfire2/datab
     HomePage, 
     WelcomePage,
     ProfileCreatePage,
-    RegisterPage
+    RegisterPage,
+    CreateFlatPage,
+    JoinFlatPage,
+    JoinOrCreateFlatPage,
+    AddFlatMatePage
   ],
   providers: [
     StatusBar,
