@@ -46,6 +46,7 @@ import { HttpModule } from '@angular/http'
     ProfilePage
   ],
   imports: [
+    HttpModule,
     BrowserModule,
     IonicModule.forRoot(MyApp),
     AngularFireModule.initializeApp(FIREBASE_CONFIG),
