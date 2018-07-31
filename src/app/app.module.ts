@@ -19,6 +19,12 @@ import { CreateFlatPage } from '../pages/create-flat/create-flat';
 import { JoinFlatPage } from '../pages/join-flat/join-flat';
 import { JoinOrCreateFlatPage } from '../pages/join-or-create-flat/join-or-create-flat';
 import { AddFlatMatePage} from '../pages/add-FlatMate/add-FlatMate';
+import { MyAccountPage } from '../pages/my-account/my-account';
+import { LogoutPage } from '../pages/logout/logout';
+import { ProfilePage } from '../pages/profile/profile';
+import { Chores } from '../pages/jobs/jobs';
+import { ListPage } from '../pages/list/list';
+import { HttpModule } from '@angular/http'
 
 
 @NgModule({
@@ -32,7 +38,12 @@ import { AddFlatMatePage} from '../pages/add-FlatMate/add-FlatMate';
     CreateFlatPage,
     JoinFlatPage,
     JoinOrCreateFlatPage,
-    AddFlatMatePage
+    AddFlatMatePage,
+    Chores,
+    ListPage,
+    MyAccountPage,
+    LogoutPage,
+    ProfilePage
   ],
   imports: [
     BrowserModule,
@@ -52,7 +63,12 @@ import { AddFlatMatePage} from '../pages/add-FlatMate/add-FlatMate';
     CreateFlatPage,
     JoinFlatPage,
     JoinOrCreateFlatPage,
-    AddFlatMatePage
+    AddFlatMatePage,
+    Chores,
+    ListPage,
+    MyAccountPage,
+    LogoutPage,
+    ProfilePage
   ],
   providers: [
     StatusBar,

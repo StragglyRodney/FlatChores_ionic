@@ -1,0 +1,55 @@
+page-jobs {
+    .accordion-list {
+        background: color($colors, light);
+        height: 100%;
+    }
+    .section {
+        background: linear-gradient(to bottom,rgb(80, 227, 194),rgb(59, 167, 143));
+        color: #000;
+        margin-top: 0px;
+        margin-bottom: 0px;
+        padding: 30px;
+    }
+    .section-active {
+        background: linear-gradient(to bottom,rgb(80, 227, 194),rgb(59, 167, 143));
+        color: #fff;
+        padding: 30px;
+
+
+    }
+ 
+    .child {
+        background: #e8e7e6;
+        color: #fff;
+        margin-bottom: 0px;
+        
+    }
+    .child-item {
+        background: linear-gradient(to top,rgb(80, 227, 194),rgb(59, 167, 143));
+        padding: 4px;
+        padding: 70px;
+
+    }
+    .label {
+        margin: 0px;
+        color: #000;
+    }
+    .list {
+        margin-bottom: 0px;
+    }
+
+    .abc:nth-child(1) {
+        color: blue;
+
+    }
+
+    .abc:nth-child(2) {
+        color: green;
+
+    }
+
+    .abc:nth-child(3) {
+        color: red;
+
+    }
+}
