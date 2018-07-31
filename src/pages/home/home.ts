@@ -5,6 +5,7 @@ import { RegisterPage } from '../register/register';
 import { User } from '../../models/user';
 import { AngularFireAuth } from "angularfire2/auth";
 import { ProfileCreatePage } from '../profile-create/profile-create';
+import { JoinOrCreateFlatPage } from '../join-or-create-flat/join-or-create-flat';
 
 @Component({
   selector: 'page-home',
@@ -26,7 +27,7 @@ export class HomePage {
 
     // TODO: only go to profile create page if first time login
     const result = this.afAuth.auth.signInWithEmailAndPassword(user.email, user.password).then(auth => {
-      this.navCtrl.setRoot(ProfileCreatePage);
+      this.navCtrl.setRoot(JoinOrCreateFlatPage);
     }).catch(err => { this.showToast("Invalid login details"); })
   }
 
