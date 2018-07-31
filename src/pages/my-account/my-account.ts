@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { ProfilePage } from '../profile/profile';
+import { PreferencesPage } from '../preferences/preferences';
+import { NotificationsPage } from '../notifications/notifications';
 
 
 @IonicPage()
@@ -38,12 +41,22 @@ export class MyAccountPage {
 
   itemTapped(event, item) {
     // That's right, we're pushing to ourselves!
-    this.navCtrl.push(MyAccountPage, {
+    this.navCtrl.push(event, {
       item: item
     });
   }
 
   openPage(page) {
-    this.navCtrl.push(MyAccountPage, { openTab: page.openTab });
+    if(page == "Profile"){
+    this.navCtrl.push(ProfilePage, { openTab: page.tabPage });
+    } else if (page == "Preferences"){
+      this.navCtrl.push(PreferencesPage, { openTab: page.tabPage });
+    } else if (page == "Notifications"){
+      this.navCtrl.push(NotificationsPage, { openTab: page.tabPage });
+    } else if (page == "Logout"){
+      console.log("Logout clicked")
+    } 
+    
+    
   }
 }

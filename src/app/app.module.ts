@@ -25,6 +25,8 @@ import { ProfilePage } from '../pages/profile/profile';
 import { Chores } from '../pages/jobs/jobs';
 import { ListPage } from '../pages/list/list';
 import { HttpModule } from '@angular/http'
+import { PreferencesPage } from '../pages/preferences/preferences';
+import { NotificationsPage } from '../pages/notifications/notifications';
 
 
 @NgModule({
@@ -43,7 +45,10 @@ import { HttpModule } from '@angular/http'
     ListPage,
     MyAccountPage,
     LogoutPage,
-    ProfilePage
+    ProfilePage,
+    PreferencesPage,
+    NotificationsPage
+    
   ],
   imports: [
     HttpModule,
@@ -69,7 +74,9 @@ import { HttpModule } from '@angular/http'
     ListPage,
     MyAccountPage,
     LogoutPage,
-    ProfilePage
+    ProfilePage,
+    PreferencesPage,
+    NotificationsPage
   ],
   providers: [
     StatusBar,
