@@ -17,7 +17,7 @@ export class ProfileCreatePage {
   constructor(private afDatabase: AngularFireDatabase, private afAuth: AngularFireAuth, public navCtrl: NavController, public navParams: NavParams) {
   }
 
-
+  // TODO: shouldn't be able to make profile if the user logged in already has one
   createProfile() {
     this.afAuth.authState.take(1).subscribe(auth => {
       this.afDatabase.object(`profile/${auth.uid}`).set(this.profile)
