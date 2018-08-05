@@ -47,6 +47,16 @@ export class HomePage {
   register() {
     this.navCtrl.push(RegisterPage);
   }
+ 
+  passwordType: string = 'password';
+  passwordIcon: string = 'eye-off';
+
+  // hide and show the users password
+  hideShowPassword() {
+    console.log(this.passwordType)
+    this.passwordType = this.passwordType === 'text' ? 'password' : 'text';
+    this.passwordIcon = this.passwordIcon === 'eye-off' ? 'eye' : 'eye-off';
+  }
 
   showToast(message) {
     let toast = this.toastCtrl.create({
