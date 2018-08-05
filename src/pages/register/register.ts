@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, AlertController, ToastController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController, ToastController, LoadingController } from 'ionic-angular';
 import { User } from '../../models/user';
 import { AngularFireAuth } from "angularfire2/auth";
 import { WelcomePage } from '../welcome/welcome';
@@ -21,15 +21,22 @@ export class RegisterPage {
 
   user = {} as User; 
 
-  constructor(private toastCtrl: ToastController, private alertCtrl: AlertController, private afAuth: AngularFireAuth, public navCtrl: NavController, public navParams: NavParams) {
+  constructor(private loadingCtrl: LoadingController, private toastCtrl: ToastController, private alertCtrl: AlertController, private afAuth: AngularFireAuth, public navCtrl: NavController, public navParams: NavParams) {
   }
 
+  // Can simplify this to be more like the login page
   async register(user: User) {
     // prevent empty input which caused weird errors with firebase
     if (user.email == null || user.password == null) {
       this.showToast("Register details are empty")
       return
     }
+
+    // display loading animation
+    let loading = this.loadingCtrl.create({
+      content: 'Registering...'
+    });
+    loading.present();
 
     try {
       const result = await this.afAuth.auth.createUserWithEmailAndPassword(user.email, user.password)
@@ -43,11 +50,13 @@ export class RegisterPage {
           title: 'Successfully Registered!',
           buttons: ['Ok']
         });
+        loading.dismiss();
         alert.present();
       }
       this.navCtrl.setRoot(HomePage)
     }
     catch(e) {
+      loading.dismiss();
       this.showToast("Invalid register details");
     } 
   }
