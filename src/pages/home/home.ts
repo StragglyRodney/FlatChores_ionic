@@ -34,20 +34,30 @@ export class HomePage {
     loading.present();
 
     // TODO: only go to profile create page if first time login
-    
     const result = this.afAuth.auth.signInWithEmailAndPassword(user.email, user.password).then(auth => {
-      this.navCtrl.setRoot(JoinOrCreateFlatPage);
+      this.afDatabase.database.ref('/profile/').once('value', (snapshot) => {
+
+        snapshot.forEach(snap => {
+          if (snap.key === auth.user.uid) {
+            console.log("found matchin id: " + snap.key + "==" + auth.user.uid)
+            loading.dismiss();
+            this.navCtrl.setRoot(JoinOrCreateFlatPage);
+          }
+        });
+      });
+
+      //loading.dismiss();
+      this.navCtrl.setRoot(ProfileCreatePage);
+    }).catch(err => {
       loading.dismiss();
-    }).catch(err => { 
-      loading.dismiss();
-      this.showToast("Invalid login details"); 
+      this.showToast("Invalid login details");
     })
   }
 
   register() {
     this.navCtrl.push(RegisterPage);
   }
- 
+
   passwordType: string = 'password';
   passwordIcon: string = 'eye-off';
 

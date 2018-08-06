@@ -19,8 +19,8 @@ export class ProfileCreatePage {
 
   // TODO: shouldn't be able to make profile if the user logged in already has one
   createProfile() {
-    this.afAuth.authState.take(1).subscribe(auth => {
-      this.afDatabase.object(`profile/${auth.uid}`).set(this.profile)
+    this.afAuth.authState.take(1).subscribe(user => {
+      this.afDatabase.object(`profile/${user.uid}`).set(this.profile)
       .then(() => this.navCtrl.setRoot(WelcomePage))
     })
   }
