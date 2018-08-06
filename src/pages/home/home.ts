@@ -19,8 +19,7 @@ export class HomePage {
   constructor(private loadingCtrl: LoadingController, private afDatabase: AngularFireDatabase, private toastCtrl: ToastController, private afAuth: AngularFireAuth, public navCtrl: NavController, private alertCtrl: AlertController) {
   }
 
-  //TODO: Add "show password" button because can be easy to make mistakes on mobile. (discuss in report)
-  login(user: User) {
+  async login(user: User) {
     // prevents empty input which caused weird errors with firebase
     if (user.email == null || user.password == null) {
       this.showToast("Login details are empty")
@@ -33,25 +32,36 @@ export class HomePage {
     });
     loading.present();
 
-    // TODO: only go to profile create page if first time login
-    const result = this.afAuth.auth.signInWithEmailAndPassword(user.email, user.password).then(auth => {
+    /*
+      * log the user in and connect to the database then
+      * iterate over objects in profile and if there 
+      * is one with the same id as the user trying to login
+      * then proceed.
+      * 
+      * TODO: need to divert to the main page if they already have a flat as well.
+      *       so essentially checks if the user exists in profile, and also exists
+      *       in any of flat/users.
+      */
+    const result = await this.afAuth.auth.signInWithEmailAndPassword(user.email, user.password).then(auth => {
       this.afDatabase.database.ref('/profile/').once('value', (snapshot) => {
-
+        
+        let userHasProfile = false;
         snapshot.forEach(snap => {
           if (snap.key === auth.user.uid) {
-            console.log("found matchin id: " + snap.key + "==" + auth.user.uid)
-            loading.dismiss();
+            userHasProfile = true;
             this.navCtrl.setRoot(JoinOrCreateFlatPage);
           }
         });
+        
+        if (!userHasProfile) {
+          this.navCtrl.setRoot(ProfileCreatePage);
+        }
       });
-
-      //loading.dismiss();
-      this.navCtrl.setRoot(ProfileCreatePage);
     }).catch(err => {
       loading.dismiss();
       this.showToast("Invalid login details");
     })
+    loading.dismiss();
   }
 
   register() {
