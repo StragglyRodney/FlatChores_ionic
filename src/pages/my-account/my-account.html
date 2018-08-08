@@ -11,7 +11,7 @@
 
   <ion-content>
       <ion-list>
-        <button ion-item *ngFor="let item of items" (click)="openPage(item.title)">
+        <button ion-item *ngFor="let item of items" (click)="openPage()">
           <ion-icon [name]="item.icon" item-start></ion-icon>
           {{item.title}}
           <div class="item-note" item-end>
@@ -22,5 +22,6 @@
       <div *ngIf="selectedItem" padding>
         You navigated here from <b>{{selectedItem.title}}</b>
       </div>
+      <h1>User Name</h1>
     </ion-content>
     
