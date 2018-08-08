@@ -50,14 +50,13 @@ export class RegisterPage {
           title: 'Successfully Registered!',
           buttons: ['Ok']
         });
-        loading.dismiss();
         alert.present();
       }
       this.navCtrl.setRoot(HomePage)
     }
     catch(e) {
-      loading.dismiss();
       this.showToast("Invalid register details");
+      loading.dismiss();
     } 
   }
 

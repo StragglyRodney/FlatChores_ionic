@@ -16,6 +16,10 @@ export class HomePage {
 
   user = {} as User;
 
+  // used for hiding/showing the password
+  passwordType: string = 'password';
+  passwordIcon: string = 'eye-off';
+
   constructor(private loadingCtrl: LoadingController, private afDatabase: AngularFireDatabase, private toastCtrl: ToastController, private afAuth: AngularFireAuth, public navCtrl: NavController, private alertCtrl: AlertController) {
   }
 
@@ -34,9 +38,8 @@ export class HomePage {
 
     /*
       * log the user in and connect to the database then
-      * iterate over objects in profile and if there 
-      * is one with the same id as the user trying to login
-      * then proceed.
+      * diverts the user to the correct page based on their
+      * profile status (in a flat? made their profile? done neither?)
       * 
       * TODO: need to divert to the main page if they already have a flat as well.
       *       so essentially checks if the user exists in profile, and also exists
@@ -49,27 +52,23 @@ export class HomePage {
         snapshot.forEach(snap => {
           if (snap.key === auth.user.uid) {
             userHasProfile = true;
-            this.navCtrl.setRoot(JoinOrCreateFlatPage);
+            loading.dismiss().then(() => this.navCtrl.setRoot(JoinOrCreateFlatPage));
           }
         });
-        
         if (!userHasProfile) {
+          loading.dismiss();
           this.navCtrl.setRoot(ProfileCreatePage);
+          loading.dismiss().then(() => this.navCtrl.setRoot(JoinOrCreateFlatPage));
         }
       });
     }).catch(err => {
-      loading.dismiss();
-      this.showToast("Invalid login details");
+      loading.dismiss().then(() => this.showToast("Invalid login details"));
     })
-    loading.dismiss();
   }
 
   register() {
     this.navCtrl.push(RegisterPage);
   }
-
-  passwordType: string = 'password';
-  passwordIcon: string = 'eye-off';
 
   // hide and show the users password
   hideShowPassword() {
