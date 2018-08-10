@@ -1,3 +1,41 @@
 page-title {
+    .bg-img{
+        background-image: url('../../assets/imgs/images/background.jpg');
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+    }
 
+    .scroll-content{
+        display: table !important;
+        width: 108% !important;
+        height: 65% !important;
+    }
+
+    form{
+        display: table-cell;
+        vertical-align: middle;
+        align-content: middle;
+    }
+
+    .smallerFont{
+        font-size: 50px;
+        font-weight: 300;
+        color: white;
+        
+    }
+
+    .largerFont{
+        font-size: 50px;
+        font-weight: 800;
+        color: turquoise;
+        margin-left: -9px;
+    
+    }
+
+    .fullstop{
+        font-size: 70px;
+        color: orange;
+        margin-left: -9px;
+    }
 }
