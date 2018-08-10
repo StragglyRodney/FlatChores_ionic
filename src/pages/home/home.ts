@@ -6,11 +6,8 @@ import { User } from '../../models/user';
 import { AngularFireAuth } from "angularfire2/auth";
 import { ProfileCreatePage } from '../profile-create/profile-create';
 import { JoinOrCreateFlatPage } from '../join-or-create-flat/join-or-create-flat';
-<<<<<<< HEAD
 import { Chores } from '../jobs/jobs';
-=======
 import { AngularFireDatabase } from '../../../node_modules/angularfire2/database';
->>>>>>> rodsBranch
 
 @Component({
   selector: 'page-home',
