@@ -1,12 +1,16 @@
 import { Component } from '@angular/core';
-import { NavController, AlertController, ToastController } from 'ionic-angular';
+import { NavController, AlertController, ToastController, LoadingController } from 'ionic-angular';
 import { WelcomePage } from '../welcome/welcome';
 import { RegisterPage } from '../register/register';
 import { User } from '../../models/user';
 import { AngularFireAuth } from "angularfire2/auth";
 import { ProfileCreatePage } from '../profile-create/profile-create';
 import { JoinOrCreateFlatPage } from '../join-or-create-flat/join-or-create-flat';
+<<<<<<< HEAD
 import { Chores } from '../jobs/jobs';
+=======
+import { AngularFireDatabase } from '../../../node_modules/angularfire2/database';
+>>>>>>> rodsBranch
 
 @Component({
   selector: 'page-home',
@@ -16,24 +20,65 @@ export class HomePage {
 
   user = {} as User;
 
-  constructor(private toastCtrl: ToastController, private afAuth: AngularFireAuth, public navCtrl: NavController, private alertCtrl: AlertController) {
+  // used for hiding/showing the password
+  passwordType: string = 'password';
+  passwordIcon: string = 'eye-off';
+
+  constructor(private loadingCtrl: LoadingController, private afDatabase: AngularFireDatabase, private toastCtrl: ToastController, private afAuth: AngularFireAuth, public navCtrl: NavController, private alertCtrl: AlertController) {
   }
 
-  login(user: User) {
-    // prevent empty input which caused weird errors with firebase
+  async login(user: User) {
+    // prevents empty input which caused weird errors with firebase
     if (user.email == null || user.password == null) {
       this.showToast("Login details are empty")
       return
     }
 
-    // TODO: only go to profile create page if first time login
-    const result = this.afAuth.auth.signInWithEmailAndPassword(user.email, user.password).then(auth => {
-      this.navCtrl.setRoot(Chores); //should be joinorcreateflat
-    }).catch(err => { this.showToast("Invalid login details"); })
+    // display loading animation
+    let loading = this.loadingCtrl.create({
+      content: 'Logging in...'
+    });
+    loading.present();
+
+    /*
+      * log the user in and connect to the database then
+      * diverts the user to the correct page based on their
+      * profile status (in a flat? made their profile? done neither?)
+      * 
+      * TODO: need to divert to the main page if they already have a flat as well.
+      *       so essentially checks if the user exists in profile, and also exists
+      *       in any of flat/users.
+      */
+    const result = await this.afAuth.auth.signInWithEmailAndPassword(user.email, user.password).then(auth => {
+      this.afDatabase.database.ref('/profile/').once('value', (snapshot) => {
+        
+        let userHasProfile = false;
+        snapshot.forEach(snap => {
+          if (snap.key === auth.user.uid) {
+            userHasProfile = true;
+            loading.dismiss().then(() => this.navCtrl.setRoot(JoinOrCreateFlatPage));
+          }
+        });
+        if (!userHasProfile) {
+          loading.dismiss();
+          this.navCtrl.setRoot(ProfileCreatePage);
+          loading.dismiss().then(() => this.navCtrl.setRoot(JoinOrCreateFlatPage));
+        }
+      });
+    }).catch(err => {
+      loading.dismiss().then(() => this.showToast("Invalid login details"));
+    })
   }
 
   register() {
     this.navCtrl.push(RegisterPage);
+  }
+
+  // hide and show the users password
+  hideShowPassword() {
+    console.log(this.passwordType)
+    this.passwordType = this.passwordType === 'text' ? 'password' : 'text';
+    this.passwordIcon = this.passwordIcon === 'eye-off' ? 'eye' : 'eye-off';
   }
 
   showToast(message) {

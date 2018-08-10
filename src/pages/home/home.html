@@ -5,11 +5,14 @@
       <ion-input placeholder="email" [(ngModel)]="user.email"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-input placeholder="password" type="password" [(ngModel)]="user.password"></ion-input>
+      <ion-input placeholder="password" [type]="passwordType" [(ngModel)]="user.password"></ion-input>
     </ion-item>
   </ion-list>
 
-  <button ion-button full (click)="login(user)">Login</button>
-  <button color='light' ion-button full (click)="register()">Register</button>
+  <button ion-button (click)="login(user)">Login</button>
+  <button color='light' ion-button (click)="register()">Register</button>
+  
+  <ion-label>Show Password</ion-label>
+  <ion-checkbox (ionChange)="hideShowPassword()"></ion-checkbox>  
   
 </ion-content>
