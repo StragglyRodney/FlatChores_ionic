@@ -53,13 +53,12 @@ export class HomePage {
         snapshot.forEach(snap => {
           if (snap.key === auth.user.uid) {
             userHasProfile = true;
-            loading.dismiss().then(() => this.navCtrl.setRoot(JoinOrCreateFlatPage));
+            // change this back to flat create
+            loading.dismiss().then(() => this.navCtrl.setRoot(Chores));
           }
         });
         if (!userHasProfile) {
-          loading.dismiss();
-          this.navCtrl.setRoot(ProfileCreatePage);
-          loading.dismiss().then(() => this.navCtrl.setRoot(JoinOrCreateFlatPage));
+          loading.dismiss().then(() => this.navCtrl.setRoot(ProfileCreatePage));
         }
       });
     }).catch(err => {
