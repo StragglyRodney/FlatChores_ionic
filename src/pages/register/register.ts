@@ -52,11 +52,10 @@ export class RegisterPage {
         });
         alert.present();
       }
-      this.navCtrl.setRoot(HomePage)
+      loading.dismiss().then(() => this.navCtrl.setRoot(HomePage));
     }
     catch(e) {
-      this.showToast("Invalid register details");
-      loading.dismiss();
+      loading.dismiss().then(() => this.showToast("Invalid register details"));
     } 
   }
 

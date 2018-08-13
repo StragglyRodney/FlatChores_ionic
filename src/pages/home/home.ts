@@ -46,7 +46,7 @@ export class HomePage {
       *       so essentially checks if the user exists in profile, and also exists
       *       in any of flat/users.
       */
-    const result = await this.afAuth.auth.signInWithEmailAndPassword(user.email, user.password).then(auth => {
+    return await this.afAuth.auth.signInWithEmailAndPassword(user.email, user.password).then(auth => {
       this.afDatabase.database.ref('/profile/').once('value', (snapshot) => {
         
         let userHasProfile = false;
