@@ -24,7 +24,7 @@ export class HomePage {
   constructor(private loadingCtrl: LoadingController, private afDatabase: AngularFireDatabase, private toastCtrl: ToastController, private afAuth: AngularFireAuth, public navCtrl: NavController, private alertCtrl: AlertController) {
   }
 
-  async login(user: User) {
+  login(user: User) {
     // prevents empty input which caused weird errors with firebase
     if (user.email == null || user.password == null) {
       this.showToast("Login details are empty")
@@ -46,21 +46,25 @@ export class HomePage {
       *       so essentially checks if the user exists in profile, and also exists
       *       in any of flat/users.
       */
-    return await this.afAuth.auth.signInWithEmailAndPassword(user.email, user.password).then(auth => {
+
+    let pageToGoTo : any
+    this.afAuth.auth.signInWithEmailAndPassword(user.email, user.password).then(auth => {
       this.afDatabase.database.ref('/profile/').once('value', (snapshot) => {
         
         let userHasProfile = false;
+
         snapshot.forEach(snap => {
           if (snap.key === auth.user.uid) {
             userHasProfile = true;
-            // change this back to flat create
-            loading.dismiss().then(() => this.navCtrl.setRoot(Chores));
+            pageToGoTo = JoinOrCreateFlatPage;
           }
         });
+
         if (!userHasProfile) {
-          loading.dismiss().then(() => this.navCtrl.setRoot(ProfileCreatePage));
+          pageToGoTo = ProfileCreatePage;
         }
-      });
+
+      }).then(() => loading.dismiss().then(() => this.navCtrl.setRoot(pageToGoTo)))
     }).catch(err => {
       loading.dismiss().then(() => this.showToast("Invalid login details"));
     })
