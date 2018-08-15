@@ -18,8 +18,8 @@
           <ion-thumbnail item-start>
             <img src="{{item[2]}}">
           </ion-thumbnail>
-          <h2>{{item[0]}}</h2>
-          <p>{{item[1]}}}</p>
+          <h2>{{item.username}}</h2>
+          <p>{{item.firstname}}</p>
           <button ion-button clear item-end (click)="itemSelected(item)">View</button>
           <button ion-button clear item-end (click)="addFlatMate(item)">Add</button>
         </ion-item>
@@ -30,8 +30,8 @@
             <ion-thumbnail item-start>
               <img src="{{item[2]}}">
             </ion-thumbnail>
-            <h2>{{item[0]}}</h2>
-            <p>{{item[1]}}}</p>
+            <h2>{{item.firstname}}</h2>
+            <p>{{item.lastname}}}</p>
             <button ion-button clear item-end (click)="itemSelected(item)">View</button>
             <button ion-button clear item-end (click)="removeFlatMate(item)">Remove</button>
           </ion-item>

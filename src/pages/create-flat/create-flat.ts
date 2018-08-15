@@ -7,13 +7,8 @@ import { AngularFireDatabase } from 'angularfire2/database';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { JoinOrCreateFlatPage } from '../join-or-create-flat/join-or-create-flat';
 import { Flat } from '../../models/flat';
-
-/**
- * Generated class for the CreateFlatPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { Profile } from '../../models/profile';
+import { Chores } from '../jobs/jobs';
 
 @IonicPage()
 @Component({
@@ -25,26 +20,28 @@ export class CreateFlatPage {
   flatObject = {} as Flat
 
   items = [];
-  /**
-   * 
-   */
+
   flat = [];
 
-  listOfFlatMates = [
-    ['John', "john@gmail.com", "../../assets/imgs/images/john.png", "I like to clean"],
-    ['Andy', "andy@gmail.com", "../../assets/imgs/images/andy.png", "I like vacuuming"],
-    ['Emma', "emma@gmail.com", "../../assets/imgs/images/emma.png", "I hate all chores"],
-    ['Rodney', "rodney@gmail.com", "../../assets/imgs/images/rodney.png", "I like coding"],
-    ['Daniel', "daniel@gmail.com", "../../assets/imgs/images/daniel.png", "I like coding"],
-    ['George', "george@gmail.com", "../../assets/imgs/images/george.png", "I like cleaning the toilet"],
-    ['Louise', "louise@gmail.com", "../../assets/imgs/images/louise.png", "I dont know who I am"],
-    ['Sean', "sean@gmail.com", "../../assets/imgs/images/sean.png", "I enjoy music"],
-    ['Alex', "alex@gmail.com", "../../assets/imgs/images/alex.png", "me no no"],
-    ['Rita', "rita@gmail.com", "../../assets/imgs/images/rita.png", "life sucks"],
-    ['Dirk Gently', "dirk_gently@gmail.com", "../../assets/imgs/images/dirkgently.png", "ya ya ya"]
-  ];
+  // All the users in the database. Populated in the constructor
+  availableUserProfiles = []
 
   constructor(private toastCtrl: ToastController, private afDatabase: AngularFireDatabase, private afAuth: AngularFireAuth, public navCtrl: NavController, public navParams: NavParams, public popoverCtrl: PopoverController, public loadingCtrl: LoadingController) {
+    
+    this.afDatabase.database.ref('/profile/').once('value', (snapshot) => {
+      snapshot.forEach(snap => {
+        let profile = snap.val()
+
+        //TODO: This isn't actually updating the profiles. It's just updating them in the flat object
+        // attach the uid to the profile object and push it to the list
+        profile.uid = snap.key
+
+        if (!profile.flat) {
+          this.availableUserProfiles.push(profile)
+        }
+      });
+      console.log(this.availableUserProfiles)
+    })
   }
 
   ionViewDidLoad() {
@@ -52,29 +49,36 @@ export class CreateFlatPage {
   }
 
   createFlat() {
-
-    this.loadingCtrl.create({
+    let loading = this.loadingCtrl.create({
       content: 'Please wait...',
       dismissOnPageChange: true
-
-    }).present();
-    console.log(this.flatObject)
+    })
 
     this.flatObject.flatmates = this.flat
-    this.flatObject.name = "flat name"
+
+    //REMOVE THESE TWO ANDY. Should be updated via html
+    this.flatObject.name = "flat2"
     this.flatObject.jobs = ["job1", "job2"]
+
+    //TODO: set profile.flat to this flat
     
     this.afAuth.authState.take(1).subscribe(user => {
       this.flatObject.ownerID = user.uid;
       this.afDatabase.object(`flats/${this.flatObject.name}`).set(this.flatObject)
         .then(() => this.showToast("created flat"))
+        .then(() => this.navCtrl.setRoot(Chores))
     });
+
+    for (let profile of this.availableUserProfiles) {
+      profile
+    }
+    loading.dismiss()
   }
 
   addFlatMate(item) {
-    let index = this.listOfFlatMates.indexOf(item);
+    let index = this.availableUserProfiles.indexOf(item);
     if (index > -1) {
-      this.listOfFlatMates.splice(index, 1);
+      this.availableUserProfiles.splice(index, 1);
     }
     this.flat.push(item);
     this.items.length = 0;
@@ -85,7 +89,7 @@ export class CreateFlatPage {
     if (index > -1) {
       this.flat.splice(index, 1);
     }
-    this.listOfFlatMates.push(item);
+    this.availableUserProfiles.push(item);
     this.items.length = 0;
   }
 
@@ -98,19 +102,18 @@ export class CreateFlatPage {
 
   getItems(ev) {
     // Reset items back to all of the items
-    this.items = this.listOfFlatMates;
-    // set val to the value of the ev target
+    this.items = this.availableUserProfiles;
+    //set val to the value of the ev target
     var val = ev.target.value;
-    // if the value is an empty string don't filter the items
+    //if the value is an empty string don't filter the items
     if (val && val.trim() != '') {
       this.items = this.items.filter((item) => {
-        return (item[0].toLowerCase().indexOf(val.toLowerCase()) > -1);
+        console.log(item.username)
+        return (item.firstname.indexOf(val) > -1);
       })
+    } else {
+      this.items = [];  
     }
-    else {
-      this.items = [];
-    }
-
   }
   showToast(message) {
     let toast = this.toastCtrl.create({
