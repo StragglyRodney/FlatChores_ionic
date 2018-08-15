@@ -53,12 +53,11 @@ export class CreateFlatPage {
 
   createFlat() {
 
-    // this.loadingCtrl.create({
-    //   content: 'Please wait...',
-    //   duration: 3000,
-    //   dismissOnPageChange: true
+    this.loadingCtrl.create({
+      content: 'Please wait...',
+      dismissOnPageChange: true
 
-    // }).present();
+    }).present();
     console.log(this.flatObject)
 
     this.flatObject.flatmates = this.flat

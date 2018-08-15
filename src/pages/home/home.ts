@@ -33,9 +33,10 @@ export class HomePage {
 
     // display loading animation
     let loading = this.loadingCtrl.create({
-      content: 'Logging in...'
-    });
-    loading.present();
+      content: 'Logging in...',
+      dismissOnPageChange: true
+    })
+    loading.present()
 
     /*
       * log the user in and connect to the database then
@@ -46,7 +47,6 @@ export class HomePage {
       *       so essentially checks if the user exists in profile, and also exists
       *       in any of flat/users.
       */
-
     let pageToGoTo : any
     this.afAuth.auth.signInWithEmailAndPassword(user.email, user.password).then(auth => {
       this.afDatabase.database.ref('/profile/').once('value', (snapshot) => {
@@ -64,7 +64,7 @@ export class HomePage {
           pageToGoTo = ProfileCreatePage;
         }
 
-      }).then(() => loading.dismiss().then(() => this.navCtrl.setRoot(pageToGoTo)))
+      }).then(() => this.navCtrl.setRoot(pageToGoTo))
     }).catch(err => {
       loading.dismiss().then(() => this.showToast("Invalid login details"));
     })
