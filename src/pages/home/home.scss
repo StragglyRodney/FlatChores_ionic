@@ -1,0 +1,58 @@
+page-home{
+
+
+    .bg-img{
+        background-image: url('../../assets/imgs/images/background.jpg');
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+    }
+
+    .buttonSection{
+        margin-top: 25px;
+        margin-bottom: 25px;
+        padding-left: 15px;
+        margin-right: 15px;
+
+    }
+    .buttonOne{
+        margin-top: 0px;
+    }
+    .buttonTwo{
+        margin-top: 0px;
+    }
+
+    .login{
+        margin-top: 50px;
+    }
+
+    .login input[type="text"], input[type="passwordType"]{
+        background: transparent;
+        border: none;
+    }
+    .title{
+        margin-top: 130px;
+    }
+    
+
+    .smallerFont{
+        font-size: 50px;
+        font-weight: 300;
+        color: white;
+        
+    }
+
+    .largerFont{
+        font-size: 50px;
+        font-weight: 800;
+        color: turquoise;
+        margin-left: -9px;
+    
+    }
+
+    .fullstop{
+        font-size: 70px;
+        color: orange;
+        margin-left: -9px;
+    }
+}

@@ -1,18 +1,33 @@
-<ion-content padding center text-center>
-  <ion-title>Login</ion-title>
-  <ion-list>
-    <ion-item>
-      <ion-input placeholder="email" [(ngModel)]="user.email"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-input placeholder="password" [type]="passwordType" [(ngModel)]="user.password"></ion-input>
-    </ion-item>
-  </ion-list>
+<ion-content padding center text-center class="bg-img">
 
-  <button ion-button (click)="login(user)">Login</button>
-  <button color='light' ion-button (click)="register()">Register</button>
-  
-  <ion-label>Show Password</ion-label>
-  <ion-checkbox (ionChange)="hideShowPassword()"></ion-checkbox>  
+    <div class="title">
+        <h1>
+          <span class="smallerFont">flat</span>
+          <span class="largerFont">chores</span>
+          <span class="fullstop">.</span> 
+        </h1>
+    </div>
+    <div class="login">
+    <ion-list>
+      <ion-item>
+        <ion-input placeholder="email" [type]="text" [(ngModel)]="user.email"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input placeholder="password" [type]="passwordType" [(ngModel)]="user.password"></ion-input>
+      </ion-item>
+    </ion-list>
+  </div>
+    
+    
+    <div class="buttonOne">
+      <button ion-button full color=turquoise (click)="login(user)">Login</button>
+    </div>
+    <div class="buttonTwo">
+      <button ion-button full color=orange (click)="register()">Register</button>
+    </div>
+
+    <ion-label>Show Password</ion-label>
+    <ion-checkbox (ionChange)="hideShowPassword()"></ion-checkbox>  
+
   
 </ion-content>

@@ -38,7 +38,7 @@ $colors: (
   secondary:  #32db64,
   danger:     #f53d3d,
   light:      #f4f4f4,
-  dark:       #222,
+  dark:       rgb(34, 34, 34),
   turquoise: #50e3c2,
   orange: #f6861e
 );
@@ -54,6 +54,7 @@ $colors: (
 // App Material Design Variables
 // --------------------------------------------------
 // Material Design only Sass variables can go here
+$text-input-md-background-color: rgb(0,0,0);
 
 
 
