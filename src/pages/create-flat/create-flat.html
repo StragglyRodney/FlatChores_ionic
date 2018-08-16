@@ -10,33 +10,14 @@
 </ion-header>
 
 
-<ion-content>
-  
-    <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
-    <ion-list>
-        <ion-item *ngFor="let item of items" >
-          <ion-thumbnail item-start>
-            <img src="{{item[2]}}">
-          </ion-thumbnail>
-          <h2>{{item[0]}}</h2>
-          <p>{{item[1]}}}</p>
-          <button ion-button clear item-end (click)="itemSelected(item)">View</button>
-          <button ion-button clear item-end (click)="addFlatMate(item)">Add</button>
-        </ion-item>
-      </ion-list>
-    <div><h2>YOUR FLAT</h2></div>
-      <ion-list>
-          <ion-item *ngFor="let item of flat" >
-            <ion-thumbnail item-start>
-              <img src="{{item[2]}}">
-            </ion-thumbnail>
-            <h2>{{item[0]}}</h2>
-            <p>{{item[1]}}}</p>
-            <button ion-button clear item-end (click)="itemSelected(item)">View</button>
-            <button ion-button clear item-end (click)="removeFlatMate(item)">Remove</button>
-          </ion-item>
-        </ion-list>
-
-  <button ion-button full (click)="createFlat()">CREATE FLAT</button>
+<ion-content class="backGround">
+  <div class="addUserDiv">
+      <button class="addButton" ion-button icon-start (click)="addUser($event)">
+          <ion-icon  color=orange name="md-add-circle"></ion-icon>
+          Add User
+        </button>
+  </div>
+ 
+  <button class="createFlatButton" ion-button full (click)="createFlat()">CREATE FLAT</button>
 
 </ion-content>

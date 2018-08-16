@@ -1,12 +1,47 @@
 
 
 page-create-flat {
-ion-icon{
-    padding-right: 10%;
-}
 
-h2, h3, h4, h5, h1,p{
-    text-align: center;
-}
+    .backGround{
+        background-color: orange;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover; 
+    }
+    .addUserDiv{
+        height: 80%;
+        margin-left: 10%;
+        margin-right: 10%;
+        margin-top: 10px;
+        padding-bottom: 10px;
+        padding-top:10px; 
+        padding-left: 2%;
+        padding-right: 2%;
+        background-color: white;
+        border-radius: 5px;
 
+    }
+    .addButton:hover{
+        color:black;
+        background-color: white !important;
+        outline-color: white;
+    }
+    .addButton{
+        color:black;
+        background-color: white;
+        outline-color: white;
+        box-shadow: none !important;
+    }
+    .createFlatButton{
+        margin-top: 15px;
+        margin-left: 10%;
+        margin-right: 10%;
+        inline-size: 80%;
+        border-radius: 5px;
+        color:black;
+        background-color: turquoise;
+    }
+
+
+    
 }

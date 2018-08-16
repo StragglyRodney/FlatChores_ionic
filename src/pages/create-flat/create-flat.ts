@@ -3,7 +3,7 @@ import { IonicPage, NavController, NavParams, Item } from 'ionic-angular';
 import { PopoverController } from 'ionic-angular';
 import { AddFlatMatePage} from '../add-FlatMate/add-FlatMate';
 import { LoadingController } from 'ionic-angular';
-
+import { ActionSheetController } from 'ionic-angular';
 /**
  * Generated class for the CreateFlatPage page.
  *
@@ -38,7 +38,7 @@ export class CreateFlatPage {
     ['Dirk Gently',"dirk_gently@gmail.com","../../assets/imgs/images/dirkgently.png","ya ya ya"]
   ];
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public popoverCtrl: PopoverController,public loadingCtrl: LoadingController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public popoverCtrl: PopoverController,public loadingCtrl: LoadingController, public actionSheetCtrl: ActionSheetController) {
   }
 
   ionViewDidLoad() {
@@ -58,6 +58,13 @@ export class CreateFlatPage {
         flat:this.flat
        });
 
+  }
+
+  addUser(myEvent){
+    let popover = this.popoverCtrl.create(AddFlatMatePage);
+   
+    popover.present();
+  
   }
 
   addFlatMate(item){

@@ -9,7 +9,14 @@
 </ion-header>
 
 
-<ion-content padding>
-  <button ion-button full (click)="createFlat()">CREATE FLAT</button>
-  <button ion-button full (click)="joinFlat()">JOIN FLAT</button>
+<ion-content class="bg-img">
+     <div class="buttonSection">
+        <div class="buttonOne">
+            <button ion-button round full color=turquoise (click)="createFlat()">CREATE FLAT</button>
+        </div>
+        <div class="buttonTwo">
+        <button ion-button round full color=orange (click)="joinFlat()">JOIN FLAT</button>
+      </div>
+    </div>
+
 </ion-content>

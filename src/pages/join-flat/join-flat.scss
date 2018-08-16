@@ -1,5 +1,31 @@
 
 page-join-flat {
 
+    .backGround{
+        background-color: turquoise;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        
+    }
+    .searchSection{
+        margin-left: 10%;
+        margin-right: 10%;
+        margin-top: 20%;
+        padding-bottom: 10px;
+        padding-top:10px; 
+        padding-left: 2%;
+        padding-right: 2%;
+        background-color: white;
+        border-radius: 25px;
+    }
+    .joinButton{
+        padding-left: 10%;
+    }
+    .description{
+        margin-left: 2%;
+        margin-right: 2%;
+        font-weight: 10;
+    }
   
 }

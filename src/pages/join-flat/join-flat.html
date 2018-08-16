@@ -10,15 +10,13 @@
 </ion-header>
 
 
-<ion-content>
-    <ion-list>
-
-        <ion-item>
-          <ion-label floating>Group ID</ion-label>
-          <ion-input type="text" id="input" [(ngModel)]="inputValue"></ion-input>
+<ion-content class="backGround">
+  <div class="searchSection">
+      <ion-item>
+          <ion-input placeholder="FlatID" clearInput></ion-input>
         </ion-item>
-    
-      </ion-list>
+    <p class="description">Type in the group ID. You can get this from one of your flatmates who are already part of the Flat, it looks something like this "232342"</p>
+    <button ion-button round full color=orange (click)="joinFlat()" class="joinButton">JOIN FLAT</button>
+  </div>
 
-      <button ion-button full (click)="joinFlat()">JOIN Flat</button>
 </ion-content>
