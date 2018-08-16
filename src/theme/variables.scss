@@ -24,7 +24,6 @@ $app-direction: ltr;
 
 
 
-
 // Named Color Variables
 // --------------------------------------------------
 // Named colors makes it easy to reuse colors on various components.
@@ -39,6 +38,7 @@ $colors: (
   danger:     #f53d3d,
   light:      #f4f4f4,
   dark:       rgb(34, 34, 34),
+  transparent:rgba(255, 255, 255, 0.5),
   turquoise: #50e3c2,
   orange: #f6861e
 );
@@ -54,8 +54,10 @@ $colors: (
 // App Material Design Variables
 // --------------------------------------------------
 // Material Design only Sass variables can go here
-$text-input-md-background-color: rgb(0,0,0);
-
+$text-input-highlight-color-valid: color($colors, turquoise);
+$list-md-background-color: color($colors, transparent);
+$loading-md-spinner-color: color($colors, orange);
+$loading-md-background: color($colors, turquoise);
 
 
 
