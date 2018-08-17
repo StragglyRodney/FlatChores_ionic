@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, MenuController } from 'ionic-angular';
 import { HomePage } from '../home/home';
+import { DisableSideMenu } from '../../CustomDecorators/disable-side-menu.decorator';
 
 /**
  * Generated class for the TitlePage page.
@@ -14,12 +15,21 @@ import { HomePage } from '../home/home';
   selector: 'page-title',
   templateUrl: 'title.html',
 })
+
+@DisableSideMenu()
+@Component({
+    selector: 'page-title',
+    templateUrl: 'title.html'
+})
 export class TitlePage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-  }
+  constructor(public navCtrl: NavController, public navParams: NavParams, public menu: MenuController) {
+
+  }     
 
   getStarted() {
     this.navCtrl.push(HomePage)
   }
+
+  
 }

@@ -8,7 +8,14 @@ import { ProfileCreatePage } from '../profile-create/profile-create';
 import { JoinOrCreateFlatPage } from '../join-or-create-flat/join-or-create-flat';
 import { Chores } from '../jobs/jobs';
 import { AngularFireDatabase } from '../../../node_modules/angularfire2/database';
+import { DisableSideMenu } from '../../CustomDecorators/disable-side-menu.decorator';
 
+@Component({
+  selector: 'page-home',
+  templateUrl: 'home.html'
+})
+
+@DisableSideMenu()
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
