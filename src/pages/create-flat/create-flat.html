@@ -12,10 +12,39 @@
 
 <ion-content class="backGround">
   <div class="addUserDiv">
-      <button class="addButton" ion-button icon-start (click)="addUser($event)">
-          <ion-icon  color=orange name="md-add-circle"></ion-icon>
-          Add User
-        </button>
+    <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
+    <ion-scroll scrollX="true" scrollY="true" style="width: 100%; height: 80%">
+      <div>
+    <ion-list>
+        <ion-item *ngFor="let item of items" >
+          <ion-thumbnail item-start>
+            <img src="../../assets/imgs/images/index.png">
+          </ion-thumbnail>
+          <h2>{{item.username}}</h2>
+          <button ion-button clear item-end (click)="itemSelected(item)">View</button>
+          <button ion-button clear item-end (click)="addFlatMate(item)">Add</button>
+        </ion-item>
+      </ion-list>
+      <div text-center>
+          <h1>
+            <span class="smallerFont">your</span>
+            <span class="largerFont">flat</span>
+            <span class="fullstop">.</span> 
+          </h1>
+        </div>
+      <ion-list>
+          <ion-item *ngFor="let item of flat" >
+            <ion-thumbnail item-start>
+              <img src="../../assets/imgs/images/index.png">
+            </ion-thumbnail>
+            <h2>{{item.username}}</h2>
+            <button ion-button clear item-end (click)="itemSelected(item)">View</button>
+            <button ion-button clear item-end (click)="removeFlatMate(item)">Remove</button>
+          </ion-item>
+        </ion-list>
+      </div>
+        </ion-scroll>
+      
   </div>
  
   <button class="createFlatButton" ion-button full (click)="createFlat()">CREATE FLAT</button>

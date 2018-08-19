@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
 import { AlertController } from 'ionic-angular';
 import { LoadingController } from 'ionic-angular';
 /**
@@ -25,7 +25,7 @@ export class JoinFlatPage {
   inputValue: string = "";
 
 
-  constructor(public navCtrl: NavController, public navParams: NavParams,public alertCtrl: AlertController, public loadingCtrl: LoadingController) {
+  constructor(public navCtrl: NavController, private toastCtrl: ToastController, public navParams: NavParams,public alertCtrl: AlertController, public loadingCtrl: LoadingController) {
   }
 
   ionViewDidLoad() {
@@ -54,14 +54,16 @@ export class JoinFlatPage {
         }
       });
       if(!match){
-      const alert = this.alertCtrl.create({
-        title: 'flat ID does not exist!',
-        subTitle: 'Please enter a valid flat ID, you can aquire this from the existing FlatMates within the flat you are trying to join',
-        buttons: ['OK']
-      });
-      alert.present();
+        this.showToast("flatID does not exit.");
     }
-    
+  }
+
+  showToast(message) {
+    let toast = this.toastCtrl.create({
+      message: message,
+      duration: 3000
+    });
+    toast.present();
   }
 
 }

@@ -43,5 +43,32 @@ page-create-flat {
     }
 
 
+    form{
+        display: table-cell;
+        vertical-align: middle;
+        align-content: middle;
+    }
+
+    .smallerFont{
+        font-size: 50px;
+        font-weight: 300;
+        color: orange;
+        
+    }
+
+    .largerFont{
+        font-size: 50px;
+        font-weight: 800;
+        color: turquoise;
+        margin-left: -9px;
+    
+    }
+
+    .fullstop{
+        font-size: 70px;
+        color: orange;
+        margin-left: -9px;
+    }
+
     
 }
