@@ -9,8 +9,16 @@ import { JoinOrCreateFlatPage } from '../join-or-create-flat/join-or-create-flat
 import { Flat } from '../../models/flat';
 import { Profile } from '../../models/profile';
 import { Chores } from '../jobs/jobs';
+import { DisableSideMenu } from '../../CustomDecorators/disable-side-menu.decorator';
 
 @IonicPage()
+@Component({
+  selector: 'page-create-flat',
+  templateUrl: 'create-flat.html',
+})
+
+
+@DisableSideMenu()
 @Component({
   selector: 'page-create-flat',
   templateUrl: 'create-flat.html',
