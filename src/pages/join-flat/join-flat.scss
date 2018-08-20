@@ -1,13 +1,6 @@
 
 page-join-flat {
 
-    .backGround{
-        background-color: turquoise;
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: cover;
-        
-    }
     .searchSection{
         margin-left: 10%;
         margin-right: 10%;
@@ -16,16 +9,45 @@ page-join-flat {
         padding-top:10px; 
         padding-left: 2%;
         padding-right: 2%;
-        background-color: white;
-        border-radius: 25px;
-    }
-    .joinButton{
-        padding-left: 10%;
+        background-color: rgba(248, 248, 255, 0.808);
+        border-radius: 5px;
     }
     .description{
         margin-left: 2%;
         margin-right: 2%;
         font-weight: 10;
     }
-  
+    .ion-navbar{
+        color: aqua;
+        background-color: turquoise;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        box-shadow: 0px !important;
+    }
+
+.smallerFont{
+    font-size: 30px;
+    font-weight: 300;
+    color: orange;
+    
+}
+
+.joinButton{
+    border-radius: 5px;
+}
+
+.largerFont{
+    font-size: 30px;
+    font-weight: 800;
+    color: turquoise;
+    margin-left: -5px;
+
+}
+
+.fullstop{
+    font-size: 30px;
+    color: orange;
+    margin-left: -5px;
+}
 }

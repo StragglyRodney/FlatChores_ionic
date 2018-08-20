@@ -4,8 +4,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { HomePage } from '../pages/home/home';
 import { TitlePage } from '../pages/title/title';
-import {AddFlatMatePage} from '../pages/add-FlatMate/add-FlatMate';
-import { Chores } from '../pages/jobs/jobs';
+import { Chores } from '../pages/jobs/jobs';2
 import { ListPage } from '../pages/list/list';
 import { MyAccountPage } from '../pages/my-account/my-account';
 import { LogoutPage } from '../pages/logout/logout';

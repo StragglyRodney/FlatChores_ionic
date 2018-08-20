@@ -9,14 +9,22 @@
 </ion-header>
 
 
-<ion-content class="bg-img">
+<ion-content class="background">
      <div class="buttonSection">
         <div class="buttonOne">
-            <button ion-button full color=turquoise (click)="createFlat()">CREATE FLAT</button>
+            <button ion-button class="orangeButton" full (click)="createFlat()">CREATE FLAT</button>
         </div>
         <div class="buttonTwo">
-        <button ion-button full color=orange (click)="joinFlat()">JOIN FLAT</button>
+        <button ion-button class="orangeButton" full (click)="joinFlat()">JOIN FLAT</button>
       </div>
     </div>
+    <div class="row">
+      <div class="col">
+    <button ion-button round class="logoutButton">
+      <ion-icon class="powerIcon" name="md-power"></ion-icon>
+    </button> 
+   
+  </div>
+  </div>
 
 </ion-content>

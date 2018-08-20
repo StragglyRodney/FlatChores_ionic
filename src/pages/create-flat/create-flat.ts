@@ -1,13 +1,10 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, Item, ToastController } from 'ionic-angular';
 import { PopoverController } from 'ionic-angular';
-import { AddFlatMatePage } from '../add-FlatMate/add-FlatMate';
 import { LoadingController } from 'ionic-angular';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { AngularFireAuth } from 'angularfire2/auth';
-import { JoinOrCreateFlatPage } from '../join-or-create-flat/join-or-create-flat';
 import { Flat } from '../../models/flat';
-import { Profile } from '../../models/profile';
 import { Chores } from '../jobs/jobs';
 import { DisableSideMenu } from '../../CustomDecorators/disable-side-menu.decorator';
 
@@ -80,14 +77,7 @@ export class CreateFlatPage {
     for (let profile of this.availableUserProfiles) {
       profile
     }
-    loading.dismiss()
-  }
-
-  addUser(myEvent){
-    let popover = this.popoverCtrl.create(AddFlatMatePage);
-   
-    popover.present();
-  
+    this.presentLoadingDefault();
   }
 
   addFlatMate(item) {
@@ -109,10 +99,10 @@ export class CreateFlatPage {
   }
 
   itemSelected(item: Item) {
-    const popover = this.popoverCtrl.create(AddFlatMatePage, {
-      FlatMate: item
-    });
-    popover.present();
+    // const popover = this.popoverCtrl.create(AddFlatMatePage, {
+    //   FlatMate: item
+    // });
+    // popover.present();
   }
 
   getItems(ev) {
@@ -136,6 +126,18 @@ export class CreateFlatPage {
       duration: 3000
     });
     toast.present();
+  }
+
+  presentLoadingDefault() {
+    let loading = this.loadingCtrl.create({
+      content: 'Please wait...'
+    });
+  
+    loading.present();
+  
+    setTimeout(() => {
+      loading.dismiss();
+    }, 2000);
   }
 
 }

@@ -18,7 +18,6 @@ import { AngularFireDatabaseModule } from '../../node_modules/angularfire2/datab
 import { CreateFlatPage } from '../pages/create-flat/create-flat';
 import { JoinFlatPage } from '../pages/join-flat/join-flat';
 import { JoinOrCreateFlatPage } from '../pages/join-or-create-flat/join-or-create-flat';
-import { AddFlatMatePage} from '../pages/add-FlatMate/add-FlatMate';
 import { MyAccountPage } from '../pages/my-account/my-account';
 import { LogoutPage } from '../pages/logout/logout';
 import { ProfilePage } from '../pages/profile/profile';
@@ -40,7 +39,6 @@ import { NotificationsPage } from '../pages/notifications/notifications';
     CreateFlatPage,
     JoinFlatPage,
     JoinOrCreateFlatPage,
-    AddFlatMatePage,
     Chores,
     ListPage,
     MyAccountPage,
@@ -52,7 +50,7 @@ import { NotificationsPage } from '../pages/notifications/notifications';
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp),
+    IonicModule.forRoot(MyApp, { swipeBackEnabled: true }),
     AngularFireModule.initializeApp(FIREBASE_CONFIG),
     AngularFireAuthModule,
     AngularFireDatabaseModule,
@@ -69,7 +67,6 @@ import { NotificationsPage } from '../pages/notifications/notifications';
     CreateFlatPage,
     JoinFlatPage,
     JoinOrCreateFlatPage,
-    AddFlatMatePage,
     Chores,
     ListPage,
     MyAccountPage,

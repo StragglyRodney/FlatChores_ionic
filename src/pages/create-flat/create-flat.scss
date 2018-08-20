@@ -2,12 +2,7 @@
 
 page-create-flat {
 
-    .backGround{
-        background-color: orange;
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: cover; 
-    }
+
     .addUserDiv{
         height: 80%;
         margin-left: 10%;
@@ -17,57 +12,37 @@ page-create-flat {
         padding-top:10px; 
         padding-left: 2%;
         padding-right: 2%;
-        background-color: white;
+        background-color: rgba(248, 248, 255, 0.808);
         border-radius: 5px;
 
     }
-    .addButton:hover{
-        color:black;
-        background-color: white !important;
-        outline-color: white;
-    }
-    .addButton{
-        color:black;
-        background-color: white;
-        outline-color: white;
-        box-shadow: none !important;
-    }
-    .createFlatButton{
-        margin-top: 15px;
-        margin-left: 10%;
-        margin-right: 10%;
-        inline-size: 80%;
-        border-radius: 5px;
-        color:black;
-        background-color: turquoise;
-    }
 
-
-    form{
-        display: table-cell;
-        vertical-align: middle;
-        align-content: middle;
-    }
-
-    .smallerFont{
+    .largerFont .fullstop .smallerFont{
         font-size: 50px;
+        font-weight: 800;
+        color: turquoise;
+        margin-left: -5px;    
+    }
+
+    .yourTitle{
+        font-size: 30px;
         font-weight: 300;
         color: orange;
         
     }
 
-    .largerFont{
-        font-size: 50px;
+    .flatTitle{
+        font-size: 30px;
         font-weight: 800;
         color: turquoise;
-        margin-left: -9px;
+        margin-left: -5px;
     
     }
 
     .fullstop{
-        font-size: 70px;
+        font-size: 30px;
         color: orange;
-        margin-left: -9px;
+        margin-left: -5px;
     }
 
     

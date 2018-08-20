@@ -1,10 +1,5 @@
 page-join-or-create-flat {
 
-    .button{
-        color: white;
-        border-radius: 5px;
-        }
-
     .buttonSection{
         margin-top: 25px;
         margin-bottom: 25px;
@@ -18,5 +13,39 @@ page-join-or-create-flat {
     .buttonTwo{
         margin-top: 40px;
     }
+    .background{
+        background-color: turquoise;
+    }
+    .logoutButton{
+        display: inline-block;
+        background-color: turquoise;
+        transition-duration: 0ms;
+        color: white;
+        -webkit-box-shadow: none;
+        -moz-box-shadow: none;
+        box-shadow: none;
+        height: 45px;
+        width: 35px;
+         margin-top: 5%;
+         
+    }
+    .logoutButton:hover {
+        color: black;
+        background-color: turquoise !important;
+        transition-duration: 0ms;
+        opacity: 0.1;
+        
+        
+    }
+    .powerIcon{
+        font-size: 30px;
+    }
+   .row {
+       text-align: center;
+       align-content: center;
+       
+   }
+
+    
 
 }

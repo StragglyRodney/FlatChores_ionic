@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
 import { AlertController } from 'ionic-angular';
 import { LoadingController } from 'ionic-angular';
+import { DisableSideMenu } from '../../CustomDecorators/disable-side-menu.decorator';
 /**
  * Generated class for the JoinflatPage page.
  *
@@ -10,6 +11,12 @@ import { LoadingController } from 'ionic-angular';
  */
 
 @IonicPage()
+@Component({
+  selector: 'page-join-flat',
+  templateUrl: 'join-flat.html',
+})
+
+@DisableSideMenu()
 @Component({
   selector: 'page-join-flat',
   templateUrl: 'join-flat.html',
@@ -26,6 +33,7 @@ export class JoinFlatPage {
 
 
   constructor(public navCtrl: NavController, private toastCtrl: ToastController, public navParams: NavParams,public alertCtrl: AlertController, public loadingCtrl: LoadingController) {
+   
   }
 
   ionViewDidLoad() {
@@ -40,23 +48,20 @@ export class JoinFlatPage {
     var match: boolean=false;
       this.flat.forEach(element => {
         if(element==this.inputValue){
-
           match=true;
-
           const loader = this.loadingCtrl.create({
             content: "Please wait...",
             duration: 2000
           });
           loader.present();
-      
-          this.navCtrl.push(JoinFlatPage, {
-          });
+          this.navCtrl.push(JoinFlatPage);
         }
       });
       if(!match){
         this.showToast("flatID does not exit.");
     }
   }
+
 
   showToast(message) {
     let toast = this.toastCtrl.create({
