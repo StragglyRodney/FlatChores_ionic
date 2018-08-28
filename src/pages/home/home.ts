@@ -49,29 +49,42 @@ export class HomePage {
       * log the user in and connect to the database then
       * diverts the user to the correct page based on their
       * profile status (in a flat? made their profile? done neither?)
-      * 
-      * TODO: need to divert to the main page if they already have a flat as well.
-      *       so essentially checks if the user exists in profile, and also exists
-      *       in any of flat/users.
       */
     let pageToGoTo : any
     this.afAuth.auth.signInWithEmailAndPassword(user.email, user.password).then(auth => {
       this.afDatabase.database.ref('/profile/').once('value', (snapshot) => {
         
-        let userHasProfile = false;
+        // default is to go to create profile
+        pageToGoTo = ProfileCreatePage
 
-        snapshot.forEach(snap => {
-          if (snap.key === auth.user.uid) {
-            userHasProfile = true;
+        snapshot.forEach(profile => {
+          // if they have a profile then go create/join a flat
+          if (profile.key === auth.user.uid) {
             pageToGoTo = JoinOrCreateFlatPage;
           }
         });
 
-        if (!userHasProfile) {
-          pageToGoTo = ProfileCreatePage;
-        }
+      }).then(() => {
+        // see if the user exists in a flat
+        this.afDatabase.database.ref('/flats/').once('value', (snapshot) => {
+          snapshot.forEach(snap => {
+            snap.forEach(flat => {
+              flat.forEach(flatmate => {
+                flatmate.forEach(flatmateData => {
 
-      }).then(() => this.navCtrl.setRoot(pageToGoTo))
+                  if (flatmateData.val() === auth.user.uid) {
+                    // should only go to chores page if already have a profile
+                    if (pageToGoTo === JoinOrCreateFlatPage) {
+                      pageToGoTo = Chores
+                    }
+                  }
+
+                })
+              })
+            })
+          })
+        }).then(() => this.navCtrl.setRoot(pageToGoTo))
+      })
     }).catch(err => {
       loading.dismiss().then(() => this.showToast("Invalid login details"));
     })
@@ -81,7 +94,6 @@ export class HomePage {
     this.navCtrl.push(RegisterPage);
   }
 
-  // hide and show the users password
   hideShowPassword() {
     console.log(this.passwordType)
     this.passwordType = this.passwordType === 'text' ? 'password' : 'text';
