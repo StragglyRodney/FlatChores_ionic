@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { CreateFlatPage } from '../create-flat/create-flat';
 import { JoinFlatPage } from '../join-flat/join-flat';
 import { DisableSideMenu } from '../../CustomDecorators/disable-side-menu.decorator';
+import { TitlePage } from '../title/title';
 /**
  * Generated class for the JoinOrCreateflatPage page.
  *
@@ -44,4 +45,12 @@ export class JoinOrCreateFlatPage {
     },{animate: true,
       direction: 'forward', animation:'tansition'});
   }
+
+  logout(){
+    let currentIndex = this.navCtrl.getActive().index;
+    this.navCtrl.push(TitlePage).then(() => {
+    this.navCtrl.remove(currentIndex);
+});
+  }
+
 }

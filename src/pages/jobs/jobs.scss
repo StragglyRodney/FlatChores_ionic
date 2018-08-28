@@ -1,7 +1,8 @@
 page-jobs {
     .accordion-list {
         background: color($colors, light);
-        height: 100%;
+        height: auto;
+        padding: 0% !important;
     }
     .section {
         background: linear-gradient(to bottom,rgb(80, 227, 194),rgb(59, 167, 143));
@@ -52,4 +53,52 @@ page-jobs {
         color: red;
 
     }
+
+    .header{
+        margin-bottom: 0px !important;
+    }
+
+    .ion-list-header{
+        margin-bottom: 0px !important;
+    }
+
+    .powerIcon{
+        font-size: 30px;
+    }
+   .row {
+       text-align: center;
+       align-content: center;
+       
+   }
+   .logoutButton{
+    display: inline-block;
+    background-color: turquoise;
+    transition-duration: 0ms;
+    color: white;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    height: auto;
+    width: auto;
+     margin-top: 5%;
+     
+}
+.logoutButton:hover {
+    color: black;
+    background-color: turquoise !important;
+    transition-duration: 0ms;
+    opacity: 0.1;
+    
+    
+}
+
+.subHeading{
+    color: rgb(54, 172, 160);
+    font-size: 14px;
+
+    
+
+}
+
+
 }

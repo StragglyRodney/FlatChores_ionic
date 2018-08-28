@@ -98,13 +98,6 @@ export class CreateFlatPage {
     this.items.length = 0;
   }
 
-  itemSelected(item: Item) {
-    // const popover = this.popoverCtrl.create(AddFlatMatePage, {
-    //   FlatMate: item
-    // });
-    // popover.present();
-  }
-
   getItems(ev) {
     // Reset items back to all of the items
     this.items = this.availableUserProfiles;

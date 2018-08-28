@@ -18,7 +18,7 @@
 <ion-content class="background">
   <div class="addUserDiv">
       <ion-item>
-          <ion-input type="text" [(ngModel)]='text' placeholder="FlatID" (keypress)="getItems($event)"></ion-input>
+          <ion-input type="text" [(ngModel)]='text' placeholder="username" (keypress)="getItems($event)"></ion-input>
         </ion-item>
     <ion-scroll scrollX="true" scrollY="true" style="width: 100%; height: 80%">
       <div>
@@ -28,7 +28,6 @@
             <img src="../../assets/imgs/images/index.png">
           </ion-thumbnail>
           <h2>{{item.username}}</h2>
-          <button ion-button clear item-end (click)="itemSelected(item)">View</button>
           <button ion-button clear item-end (click)="addFlatMate(item)">Add</button>
         </ion-item>
       </ion-list>
@@ -45,7 +44,6 @@
               <img src="../../assets/imgs/images/index.png">
             </ion-thumbnail>
             <h2>{{item.username}}</h2>
-            <button ion-button clear item-end (click)="itemSelected(item)">View</button>
             <button ion-button clear item-end (click)="removeFlatMate(item)">Remove</button>
           </ion-item>
         </ion-list>

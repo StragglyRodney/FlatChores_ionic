@@ -11,13 +11,13 @@ import { timeout } from 'rxjs/operators';
  */
 
 
-var colors = ["turquoise", "orange", "turquoise", "orange","turquoise", "orange","turquoise", "orange","turquoise", "orange",];
+var colors = ["#f86521", "#21cef8", "#f86521", "#21cef8","#f86521", "#21cef8","#f86521", "#21cef8","#f86521", "#21cef8","#f86521", "#21cef8"];
 var restaraunts = ["Wendy's", "McDonalds", "Chick-fil-a", "Five Guys",
   "Gold Star", "La Mexicana", "Chipotle", "Tazza Mia",
-  "Panera", "Just Crepes", "Arby's", "Indian"];
+  "Panera", "Just Crepes", "Arby's", "Indian","Indian"];
 
 var startAngle = 0;
-var jobs = 9;
+var jobs = 10;
 var jobsArc = Math.PI*2 / jobs;
 var spinTimeout = null;
 var randomSpin=0;
@@ -25,7 +25,7 @@ var canvas;
 var ctx;
 var easeOut=1;
 var flatmates;
-var listOfFlatmates = [["John","#6666ff"],["Alex","#00cc00"],["James","#ff4d4d"]];
+var listOfFlatmates = [["John","#6666ff"],["Alex","#00cc00"],["James","#ff4d4d"],["James","#c206a0"]];
 
 @IonicPage()
 
@@ -106,30 +106,24 @@ drawRouletteWheel() {
   canvas = this._CANVAS;
   if (canvas.getContext) {
     var outsideRadius =  this._CANVAS.width*0.6*0.5;
-    var textRadius =  this._CANVAS.width*0.2;
+    var textRadius =  this._CANVAS.width*0.19;
     var insideRadius = 5;
     var flatmateOutsideRadius =  this._CANVAS.width*0.9*0.5;
     var flatmateInsideRadius =  this._CANVAS.width*0.6*0.5;
     var flatemateTextRadius =  this._CANVAS.width*0.8*0.5;
     var flatmateArc = Math.PI*2 / flatmates;
+    var jobsArc = Math.PI*2 / jobs;
     ctx = canvas.getContext("2d");
     ctx.clearRect(0, 0, this._CANVAS.width, this._CANVAS.width);
     ctx.font = '15px Helvetica, Arial';
 
     for (var j = 0; j < flatmates; j++) {
-      var angle = startAngle + j * flatmateArc;
       var fixedAngle=0+j*flatmateArc;
-      ctx.fillStyle = (listOfFlatmates[j])[1];
+      ctx.fillStyle = this.shadeColor1((listOfFlatmates[j])[1],20);
 
       ctx.beginPath();
       ctx.arc(this._CANVAS.width/2, this._CANVAS.width/2, flatmateOutsideRadius , fixedAngle, fixedAngle + flatmateArc, false);
       ctx.arc(this._CANVAS.width/2, this._CANVAS.width/2,flatmateInsideRadius, fixedAngle + flatmateArc, fixedAngle, true);
-      ctx.fill();
-      ctx.save();
-      ctx.beginPath();
-      ctx.fillStyle = this.shadeColor1((listOfFlatmates[j])[1],50);
-      ctx.arc(this._CANVAS.width/2, this._CANVAS.width/2, outsideRadius , angle, angle + flatmateArc, false);
-      ctx.arc(this._CANVAS.width/2, this._CANVAS.width/2,insideRadius, angle + flatmateArc, angle, true);
       ctx.fill();
       ctx.save();
       ctx.fillStyle = "black";
@@ -144,6 +138,10 @@ drawRouletteWheel() {
     for (var i = 0; i < jobs; i++) {
       var angle = startAngle + i * jobsArc;
       ctx.beginPath();
+      ctx.fillStyle = this.shadeColor1(colors[i],20);
+      ctx.arc(this._CANVAS.width/2, this._CANVAS.width/2, outsideRadius , angle, angle + jobsArc, false);
+      ctx.arc(this._CANVAS.width/2, this._CANVAS.width/2,insideRadius, angle + jobsArc, angle, true);
+      ctx.fill();
       ctx.save();
       ctx.fillStyle = "black";
       ctx.translate(this._CANVAS.width/2 + Math.cos(angle + jobsArc / 2) * textRadius,
