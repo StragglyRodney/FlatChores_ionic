@@ -11,10 +11,10 @@ export class Chores {
   information: any[];
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private http: Http) {
-    let localata = this.http.get('assets/information.json').map(res => res.json().items);
-    localata.subscribe(data => {
-      this.information = data;
-    });
+    // let localata = this.http.get('assets/information.json').map(res => res.json().items);
+    // localata.subscribe(data => {
+    //   this.information = data;
+    // });
   }
 
   toggleSection(i){

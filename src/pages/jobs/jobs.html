@@ -7,7 +7,7 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content>
+<ion-content class="background">
   <ion-list class="accordion-list">
     <ion-list-header class = "header" *ngFor="let item of information; let chore = index" no-lines no-padding>
       <button ion-item (click)="toggleSection(chore)" detail-none [ngClass]="{'section-active': item.open, 'section': !item.open}">
@@ -43,4 +43,14 @@
       
     </ion-list-header>
   </ion-list>
+
+  <div class="row">
+    <div class="col">
+  <button ion-button round class="logoutButton" (click)="logout()">
+    <ion-icon class="powerIcon"  name="ios-add-circle-outline"></ion-icon>
+  </button> 
+  <p class="subHeading">create jobs</p>
+ 
+</div>
+</div>
 </ion-content>
