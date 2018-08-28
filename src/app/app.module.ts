@@ -27,6 +27,7 @@ import { HttpModule } from '@angular/http'
 import { PreferencesPage } from '../pages/preferences/preferences';
 import { NotificationsPage } from '../pages/notifications/notifications';
 import { CanvasPage } from '../pages/canvas/canvas';
+import {CreateJobPage} from '../pages/create-job/create-job';
 
 
 @NgModule({
@@ -47,7 +48,8 @@ import { CanvasPage } from '../pages/canvas/canvas';
     ProfilePage,
     PreferencesPage,
     NotificationsPage,
-    CanvasPage
+    CanvasPage,
+    CreateJobPage
     
   ],
   imports: [
@@ -76,7 +78,8 @@ import { CanvasPage } from '../pages/canvas/canvas';
     ProfilePage,
     PreferencesPage,
     NotificationsPage,
-    CanvasPage
+    CanvasPage,
+    CreateJobPage
   ],
   providers: [
     StatusBar,
