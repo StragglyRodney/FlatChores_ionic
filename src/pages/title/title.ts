@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, MenuController } from 'ionic-angular';
 import { HomePage } from '../home/home';
 import { DisableSideMenu } from '../../CustomDecorators/disable-side-menu.decorator';
-
+import { CanvasPage } from '../canvas/canvas';
 /**
  * Generated class for the TitlePage page.
  *
@@ -28,7 +28,8 @@ export class TitlePage {
   }     
 
   getStarted() {
-    this.navCtrl.push(HomePage)
+    this.navCtrl.push(CanvasPage)
+
   }
 
   

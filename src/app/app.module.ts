@@ -26,6 +26,7 @@ import { ListPage } from '../pages/list/list';
 import { HttpModule } from '@angular/http'
 import { PreferencesPage } from '../pages/preferences/preferences';
 import { NotificationsPage } from '../pages/notifications/notifications';
+import { CanvasPage } from '../pages/canvas/canvas';
 
 
 @NgModule({
@@ -45,7 +46,8 @@ import { NotificationsPage } from '../pages/notifications/notifications';
     LogoutPage,
     ProfilePage,
     PreferencesPage,
-    NotificationsPage
+    NotificationsPage,
+    CanvasPage
     
   ],
   imports: [
@@ -73,7 +75,8 @@ import { NotificationsPage } from '../pages/notifications/notifications';
     LogoutPage,
     ProfilePage,
     PreferencesPage,
-    NotificationsPage
+    NotificationsPage,
+    CanvasPage
   ],
   providers: [
     StatusBar,
