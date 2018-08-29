@@ -46,11 +46,13 @@ export class Chores {
    
    addJob(){
      //check if title of job already exists
+     console.log(this.information);
      this.information.forEach(element => {
       if(element['name'] == this.newJob[0]){
         this.showToast("Job already exisits");
       }
      })
+
    }
 
    showToast(message) {
