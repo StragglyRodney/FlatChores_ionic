@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
-import { AlertController } from 'ionic-angular';
 import { LoadingController } from 'ionic-angular';
 import { DisableSideMenu } from '../../CustomDecorators/disable-side-menu.decorator';
+import { Chores } from '../jobs/jobs';
 /**
  * Generated class for the JoinflatPage page.
  *
@@ -32,7 +32,7 @@ export class JoinFlatPage {
   inputValue: string = "";
 
 
-  constructor(public navCtrl: NavController, private toastCtrl: ToastController, public navParams: NavParams,public alertCtrl: AlertController, public loadingCtrl: LoadingController) {
+  constructor(public navCtrl: NavController, private toastCtrl: ToastController, public navParams: NavParams, public loadingCtrl: LoadingController) {
    
   }
 
@@ -49,17 +49,24 @@ export class JoinFlatPage {
       this.flat.forEach(element => {
         if(element==this.inputValue){
           match=true;
-          const loader = this.loadingCtrl.create({
-            content: "Please wait...",
-            duration: 2000
-          });
-          loader.present();
-          this.navCtrl.push(JoinFlatPage);
+         this.showLoading();
+          this.navCtrl.setRoot(Chores);
         }
       });
       if(!match){
         this.showToast("flatID does not exit.");
     }
+    else{
+      //if flat is a match then navigate to the Chores homepage, this is where the database needs to be updated
+    }
+  }
+
+  showLoading(){
+    const loader = this.loadingCtrl.create({
+      content: "Please wait...",
+      duration: 1000
+    });
+    loader.present();
   }
 
 

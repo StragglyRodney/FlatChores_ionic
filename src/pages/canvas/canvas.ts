@@ -75,7 +75,7 @@ setupCanvas()
 }
 
 spin(){
-  randomSpin=Math.random()*20;
+  randomSpin=Math.random()*40;
   this.spinRender();
 
 }
@@ -97,7 +97,7 @@ stopRotateWheel() {
   var index = Math.floor((360 - degrees % 360) / arcd);
   ctx.save();
   ctx.font = 'bold 30px Helvetica, Arial';
-  var text = restaraunts[index]
+  var text = restaraunts[index];
   ctx.fillText(text, 250 - ctx.measureText(text).width / 2, 250 + 10);
   ctx.restore();
 }

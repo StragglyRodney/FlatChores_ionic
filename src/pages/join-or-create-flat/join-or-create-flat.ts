@@ -40,17 +40,12 @@ export class JoinOrCreateFlatPage {
   }
 
   joinFlat() {
-    this.navCtrl.push(JoinFlatPage, {
-      name: this.FlatMatename
-    },{animate: true,
-      direction: 'forward', animation:'tansition'});
+    this.navCtrl.push(JoinFlatPage, {},{animate: true, direction: 'forward', animation:'tansition'});
   }
 
   logout(){
     let currentIndex = this.navCtrl.getActive().index;
-    this.navCtrl.push(TitlePage).then(() => {
-    this.navCtrl.remove(currentIndex);
-});
+    this.navCtrl.push(TitlePage).then(() => { this.navCtrl.remove(currentIndex);});
   }
 
 }
