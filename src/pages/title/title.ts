@@ -4,6 +4,7 @@ import { HomePage } from '../home/home';
 import { DisableSideMenu } from '../../CustomDecorators/disable-side-menu.decorator';
 import { CanvasPage } from '../canvas/canvas';
 import { Chores } from '../jobs/jobs';
+import { ProfilePage } from '../profile/profile';
 
 /**
  * Generated class for the TitlePage page.
@@ -30,7 +31,7 @@ export class TitlePage {
   }     
 
   getStarted() {
-    this.navCtrl.push(HomePage);
+    this.navCtrl.push(ProfilePage);
 
   }
 

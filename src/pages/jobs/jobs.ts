@@ -66,7 +66,7 @@ export class Chores {
         {
           "name": "not assigned",
           "information": this.newJob[1],
-          "due": "not set"
+          "due": "due date not set"
         }
       ]
     };

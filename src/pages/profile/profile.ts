@@ -21,6 +21,8 @@ export class ProfilePage {
   firstname: String
   lastname: String
   username: String
+  myIcon: string = "person";
+
 
   constructor(private afAuth: AngularFireAuth, private afDatabase: AngularFireDatabase, public navCtrl: NavController, public navParams: NavParams) {
     this.seeProfile()
