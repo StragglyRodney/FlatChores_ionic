@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, Item, ToastController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
 import { PopoverController } from 'ionic-angular';
 import { LoadingController } from 'ionic-angular';
 import { AngularFireDatabase } from 'angularfire2/database';
@@ -31,16 +31,13 @@ export class CreateFlatPage {
   // All the users in the database. Populated in the constructor
   availableUserProfiles = []
 
-  constructor(private toastCtrl: ToastController, private afDatabase: AngularFireDatabase, private afAuth: AngularFireAuth, public navCtrl: NavController, public navParams: NavParams, public popoverCtrl: PopoverController, public loadingCtrl: LoadingController) {
-    
+  constructor(private toastCtrl: ToastController, private afDatabase: AngularFireDatabase, private afAuth: AngularFireAuth, public navCtrl: NavController, public loadingCtrl: LoadingController) {
     this.afDatabase.database.ref('/profile/').once('value', (snapshot) => {
       snapshot.forEach(snap => {
         let profile = snap.val()
-
         //TODO: This isn't actually updating the profiles. It's just updating them in the flat object
         // attach the uid to the profile object and push it to the list
         profile.uid = snap.key
-
         if (!profile.flat) {
           this.availableUserProfiles.push(profile)
         }
@@ -113,6 +110,7 @@ export class CreateFlatPage {
       this.items = [];  
     }
   }
+
   showToast(message) {
     let toast = this.toastCtrl.create({
       message: message,
@@ -125,9 +123,7 @@ export class CreateFlatPage {
     let loading = this.loadingCtrl.create({
       content: 'Please wait...'
     });
-  
     loading.present();
-  
     setTimeout(() => {
       loading.dismiss();
     }, 2000);
