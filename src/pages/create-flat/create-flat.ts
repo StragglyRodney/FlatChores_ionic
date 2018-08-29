@@ -23,7 +23,7 @@ import { DisableSideMenu } from '../../CustomDecorators/disable-side-menu.decora
 export class CreateFlatPage {
 
   flatObject = {} as Flat
-
+  input="";
   items = [];
 
   flat = [];
@@ -57,10 +57,6 @@ export class CreateFlatPage {
     })
 
     this.flatObject.flatmates = this.flat
-
-    //REMOVE THESE TWO ANDY. Should be updated via html
-    this.flatObject.name = "flat2"
-    this.flatObject.jobs = ["job1", "job2"]
 
     //TODO: set profile.flat to this flat
     
@@ -101,7 +97,8 @@ export class CreateFlatPage {
     //set val to the value of the ev target
     var val = ev.target.value;
     //if the value is an empty string don't filter the items
-    if (val && val.trim() != '') {
+    console.log(val);
+    if (!(val == '')) {
       this.items = this.items.filter((item) => {
         console.log(item.username)
         return (item.firstname.indexOf(val) > -1);
