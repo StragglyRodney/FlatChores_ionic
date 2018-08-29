@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { viewClassName } from '@angular/compiler';
+import { MyAccountPage } from '../my-account/my-account';
 
 /**
  * Generated class for the ProfilePage page.
@@ -24,7 +25,7 @@ export class ProfilePage {
   myIcon: string = "person";
 
 
-  constructor(private afAuth: AngularFireAuth, private afDatabase: AngularFireDatabase, public navCtrl: NavController, public navParams: NavParams) {
+  constructor(private loadingCtrl: LoadingController, private afAuth: AngularFireAuth, private afDatabase: AngularFireDatabase, public navCtrl: NavController, public navParams: NavParams) {
     this.seeProfile()
   }
 
@@ -49,6 +50,24 @@ export class ProfilePage {
 
       });
     })
+  }
+
+  saveClicked(){
+    console.log("clicked")
+    // display loading animation
+    let loading = this.loadingCtrl.create({
+      spinner: 'ios',
+      content: 'Saving....',
+      duration: 500
+    })
+    loading.present()
+
+    this.previousPage()
+    
+  }
+
+  previousPage(){
+    this.navCtrl.setRoot(MyAccountPage)
   }
 
 }

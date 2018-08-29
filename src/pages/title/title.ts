@@ -32,7 +32,7 @@ export class TitlePage {
   }     
 
   getStarted() {
-    this.navCtrl.push(PreferencesPage);
+    this.navCtrl.push(HomePage);
 
   }
 
