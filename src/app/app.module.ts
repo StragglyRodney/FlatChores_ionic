@@ -27,7 +27,7 @@ import { HttpModule } from '@angular/http'
 import { PreferencesPage } from '../pages/preferences/preferences';
 import { NotificationsPage } from '../pages/notifications/notifications';
 import { CanvasPage } from '../pages/canvas/canvas';
-
+import { IonicStorageModule } from '@ionic/storage';
 
 
 @NgModule({
@@ -49,7 +49,7 @@ import { CanvasPage } from '../pages/canvas/canvas';
     ProfilePage,
     PreferencesPage,
     NotificationsPage,
-    CanvasPage
+    CanvasPage,
 
     
   ],
@@ -59,7 +59,8 @@ import { CanvasPage } from '../pages/canvas/canvas';
     AngularFireModule.initializeApp(FIREBASE_CONFIG),
     AngularFireAuthModule,
     AngularFireDatabaseModule,
-    HttpModule
+    HttpModule,
+    IonicStorageModule.forRoot()
   ],
   bootstrap: [IonicApp],
   entryComponents: [

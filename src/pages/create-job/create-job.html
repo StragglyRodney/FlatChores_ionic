@@ -17,6 +17,17 @@
 </ion-header>
 
 
-<ion-content padding>
+<ion-content class="background">
+  <form (ngSubmit)="logForm()">
+    <ion-item>
+      <ion-label>Job Title</ion-label>
+      <ion-input type="text" [(ngModel)]="title" name="title"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Job Description</ion-label>
+      <ion-textarea [(ngModel)]="description" name="description"></ion-textarea>
+    </ion-item>
+    <button class="orangeButton" (clicked)="logForm()" ion-button type="submit" block>Add Job</button>
+  </form>
 
 </ion-content>
