@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
-import { NavController,  NavParams, Nav} from 'ionic-angular';
+import { NavController,  NavParams, Nav, ToastController} from 'ionic-angular';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 import { CreateJobPage } from '../create-job/create-job';
 import { Storage } from '@ionic/storage';
+import { elementAt } from 'rxjs/operators';
 @Component({
   selector: 'page-jobs',
   templateUrl: 'jobs.html'
@@ -12,11 +13,11 @@ export class Chores {
   
   information: any[];
   newJob="";
-  constructor(public navCtrl: NavController, public navParams: NavParams, private http: Http,private storage: Storage) {
-    //  let localata = this.http.get('assets/information.json').map(res => res.json().items);
-    //  localata.subscribe(data => {
-    //    this.information = data;
-    //  });
+  constructor(public navCtrl: NavController, private toastCtrl: ToastController, public navParams: NavParams, private http: Http,private storage: Storage) {
+     let localata = this.http.get('assets/information.json').map(res => res.json().items);
+     localata.subscribe(data => {
+       this.information = data;
+     });
   }
 
   toggleSection(i){
@@ -44,7 +45,20 @@ export class Chores {
    }
    
    addJob(){
-
+     //check if title of job already exists
+     this.information.forEach(element => {
+      if(element['name'] == this.newJob[0]){
+        this.showToast("Job already exisits");
+      }
+     })
    }
+
+   showToast(message) {
+    let toast = this.toastCtrl.create({
+      message: message,
+      duration: 3000
+    });
+    toast.present();
+  }
 
 }
