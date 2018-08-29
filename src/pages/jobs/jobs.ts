@@ -4,20 +4,23 @@ import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 import { CreateJobPage } from '../create-job/create-job';
 import { Storage } from '@ionic/storage';
+import { AngularFireDatabase } from 'angularfire2/database';
 @Component({
   selector: 'page-jobs',
   templateUrl: 'jobs.html'
 })
 export class Chores {
 
-  information = [];
+  information = []
   
   newJob = "";
-  constructor(public navCtrl: NavController, public navParams: NavParams, private http: Http, private storage: Storage, private toastCtrl: ToastController) {
-   // let localata = this.http.get('assets/information.json').map(res => res.json().items);
-   // localata.subscribe(data => {
-   //   this.information = data;
-   // });
+  constructor(private afDatabase: AngularFireDatabase, public navCtrl: NavController, public navParams: NavParams, private http: Http, private storage: Storage, private toastCtrl: ToastController) {
+    this.afDatabase.database.ref('/flats/flat2/jobs').once('value', (snapshot) => {
+      snapshot.forEach(snap => {
+        this.information.push(snap.val())
+      })
+    })
+  
   }
 
   toggleSection(i) {
@@ -64,6 +67,10 @@ export class Chores {
     };
 
     this.information.push(job);
+
+    // this is currently hard coded to add to flat2 but in the future it will add to the current users flat
+    this.afDatabase.object(`flats/flat2/jobs/${job.name}`).set(job)
+        .then(() => this.showToast("added job"))
   }
 
   showToast(message) {

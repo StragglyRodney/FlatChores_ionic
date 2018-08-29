@@ -63,7 +63,8 @@ export class CreateFlatPage {
 
     //REMOVE THESE TWO ANDY. Should be updated via html
     this.flatObject.name = "flat2"
-    this.flatObject.jobs = ["job1", "job2"]
+
+    // this.flatObject.jobs = null
 
     //TODO: set profile.flat to this flat
     
