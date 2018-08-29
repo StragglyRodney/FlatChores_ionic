@@ -4,6 +4,9 @@ import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 import { CreateJobPage } from '../create-job/create-job';
 import { Storage } from '@ionic/storage';
+import { AngularFireDatabase } from 'angularfire2/database/database';
+import { AngularFireAuth } from 'angularfire2/auth/auth';
+import { auth } from 'firebase';
 @Component({
   selector: 'page-jobs',
   templateUrl: 'jobs.html'
@@ -11,13 +14,14 @@ import { Storage } from '@ionic/storage';
 export class Chores {
 
   information = [];
-  
+
   newJob = "";
-  constructor(public navCtrl: NavController, public navParams: NavParams, private http: Http, private storage: Storage, private toastCtrl: ToastController) {
-   // let localata = this.http.get('assets/information.json').map(res => res.json().items);
-   // localata.subscribe(data => {
-   //   this.information = data;
-   // });
+  constructor(public navCtrl: NavController, private afDatabase: AngularFireDatabase, private afAuth: AngularFireAuth, public navParams: NavParams, private http: Http, private storage: Storage, private toastCtrl: ToastController) {
+    // let localata = this.http.get('assets/information.json').map(res => res.json().items);
+    // localata.subscribe(data => {
+    //   this.information = data;
+    // });
+    this.seeProfile();
   }
 
   toggleSection(i) {
@@ -73,5 +77,37 @@ export class Chores {
     });
     toast.present();
   }
+
+  seeProfile() {
+
+    this.afDatabase.database.ref('/profile/').once('value', (snapshot) => {
+      snapshot.forEach(profile => {
+        if (this.afAuth.auth.currentUser.uid === profile.key) {
+          console.log('Users Name: ', profile.val());
+        }
+      });
+    })
+  }
+
+
+  // }).then(() => {
+  //   // see if the user exists in a flat
+  //   this.afDatabase.database.ref('/flats/').once('value', (snapshot) => {
+  //     snapshot.forEach(snap => {
+  //       snap.forEach(flat => {
+  //         flat.forEach(flatmate => {
+  //           flatmate.forEach(flatmateData => {
+  //             if (flatmateData.val() === auth.user.uid) {
+  //               // should only go to chores page if already have a profile
+
+  //             }
+  //           })
+  //         })
+  //       })
+  //     })
+  //   })
+  // }
+  //   , )
+  //}
 
 }

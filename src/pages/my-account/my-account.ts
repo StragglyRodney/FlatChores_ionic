@@ -47,13 +47,13 @@ export class MyAccountPage {
   }
 
   openPage(page) {
-    if(page == "Profile"){
+    if(page === "Profile"){
     this.navCtrl.push(ProfilePage, { openTab: page.tabPage });
-    } else if (page == "Preferences"){
+    } else if (page === "Preferences"){
       this.navCtrl.push(PreferencesPage, { openTab: page.tabPage });
-    } else if (page == "Notifications"){
+    } else if (page === "Notifications"){
       this.navCtrl.push(NotificationsPage, { openTab: page.tabPage });
-    } else if (page == "Logout"){
+    } else if (page === "Logout"){
       console.log("Logout clicked")
     } 
     
