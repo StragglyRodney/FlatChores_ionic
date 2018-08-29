@@ -15,7 +15,7 @@ import { ProfileCreatePage } from '../pages/profile-create/profile-create';
 import { RegisterPage } from "../pages/register/register";
 import { FIREBASE_CONFIG } from './app.firebase.config';
 import { AngularFireDatabaseModule } from '../../node_modules/angularfire2/database';
-
+import { CreateJobPage } from '../pages/create-job/create-job';
 import { CreateFlatPage } from '../pages/create-flat/create-flat';
 import { JoinFlatPage } from '../pages/join-flat/join-flat';
 import { JoinOrCreateFlatPage } from '../pages/join-or-create-flat/join-or-create-flat';
@@ -28,11 +28,16 @@ import { HttpModule } from '@angular/http'
 import { PreferencesPage } from '../pages/preferences/preferences';
 import { NotificationsPage } from '../pages/notifications/notifications';
 import { CanvasPage } from '../pages/canvas/canvas';
+<<<<<<< HEAD
 import {CreateJobPage} from '../pages/create-job/create-job';
+=======
+import { IonicStorageModule } from '@ionic/storage';
+>>>>>>> origin/stylingBranch
 
 
 @NgModule({
   declarations: [
+    CreateJobPage,
     MyApp,
     TitlePage,
     HomePage,
@@ -50,7 +55,11 @@ import {CreateJobPage} from '../pages/create-job/create-job';
     PreferencesPage,
     NotificationsPage,
     CanvasPage,
+<<<<<<< HEAD
     CreateJobPage
+=======
+
+>>>>>>> origin/stylingBranch
     
   ],
   imports: [
@@ -64,6 +73,7 @@ import {CreateJobPage} from '../pages/create-job/create-job';
   ],
   bootstrap: [IonicApp],
   entryComponents: [
+    CreateJobPage,
     MyApp,
     TitlePage,
     HomePage, 

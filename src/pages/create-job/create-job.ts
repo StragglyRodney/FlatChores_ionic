@@ -1,10 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
-import { Chores } from '../jobs/jobs';
-import { storage } from 'firebase';
-
-
 /**
  * Generated class for the CreateJobPage page.
  *
@@ -17,26 +13,24 @@ import { storage } from 'firebase';
   selector: 'page-create-job',
   templateUrl: 'create-job.html',
 })
+
+
 export class CreateJobPage {
 
-  title = "";
-  description = "";
-  storage: Storage;
+  job = [];
+  title="";
+  description="";
+  callback;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
-   this.storage = navParams.get("storage");
-
+    this.callback = this.navParams.get("callback");
   }
 
   logForm() {
-    //console.log(this.title, this.description)
-    // set a key/value
-    this.storage.set(this.title, this.description);
-    // Or to get a key/value pair
-    this.storage.get(this.title).then((val) => {
-      console.log('Your Job description is', val);
+    this.job=[this.title,this.description];
+    this.callback(this.job).then(()=>{
+      this.navCtrl.pop();
     });
-   // this.navCtrl.setRoot(Chores);
   }
 
   ionViewDidLoad() {

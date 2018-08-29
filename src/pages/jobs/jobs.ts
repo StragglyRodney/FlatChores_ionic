@@ -10,13 +10,13 @@ import { Storage } from '@ionic/storage';
 })
 export class Chores {
   
-    information: any[];
-
-  constructor(public navCtrl: NavController, public navParams: NavParams, private http: Http,  private storage: Storage) {
-    // let localata = this.http.get('assets/information.json').map(res => res.json().items);
-    // localata.subscribe(data => {
-    //   this.information = data;
-    // });
+  information: any[];
+  newJob="";
+  constructor(public navCtrl: NavController, public navParams: NavParams, private http: Http,private storage: Storage) {
+    //  let localata = this.http.get('assets/information.json').map(res => res.json().items);
+    //  localata.subscribe(data => {
+    //    this.information = data;
+    //  });
   }
 
   toggleSection(i){
@@ -28,10 +28,23 @@ export class Chores {
 
   }
 
-  createJob(){
-    this.navCtrl.push(CreateJobPage,{'storage': this.storage},{animate: true, animation: "transition"});
-  }
+   createJob(){
+    this.navCtrl.push(CreateJobPage, {
+    callback: this.myCallbackFunction
+    },{animate: true, animation: "transition"});
 
+   }
 
+   myCallbackFunction = (_params) => {
+    return new Promise((resolve, reject) => {
+        this.newJob = _params;
+        this.addJob();
+        resolve();
+    });
+   }
+   
+   addJob(){
+
+   }
 
 }
