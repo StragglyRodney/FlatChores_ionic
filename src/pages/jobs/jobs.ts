@@ -4,20 +4,20 @@ import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 import { CreateJobPage } from '../create-job/create-job';
 import { Storage } from '@ionic/storage';
-import { elementAt } from 'rxjs/operators';
 @Component({
   selector: 'page-jobs',
   templateUrl: 'jobs.html'
 })
 export class Chores {
 
-  information: any[];
+  information = [];
+  
   newJob = "";
-  constructor(public navCtrl: NavController, private toastCtrl: ToastController, public navParams: NavParams, private http: Http, private storage: Storage) {
-    let localata = this.http.get('assets/information.json').map(res => res.json().items);
-    localata.subscribe(data => {
-      this.information = data;
-    });
+  constructor(public navCtrl: NavController, public navParams: NavParams, private http: Http, private storage: Storage, private toastCtrl: ToastController) {
+   // let localata = this.http.get('assets/information.json').map(res => res.json().items);
+   // localata.subscribe(data => {
+   //   this.information = data;
+   // });
   }
 
   toggleSection(i) {
@@ -45,14 +45,24 @@ export class Chores {
   }
 
   addJob() {
-    //check if title of job already exists
     console.log(this.information);
     this.information.forEach(element => {
       if (element['name'] == this.newJob[0]) {
-        this.showToast("Job already exisits");
+        this.showToast("Job already exists!!");
       }
-    })
+    });
 
+    var job = {
+      name: this.newJob[0], children: [
+        {
+          "name": "not assigned",
+          "information": this.newJob[1],
+          "due": "not set"
+        }
+      ]
+    };
+
+    this.information.push(job);
   }
 
   showToast(message) {
