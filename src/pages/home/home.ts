@@ -69,11 +69,19 @@ export class HomePage {
         this.afDatabase.database.ref('/flats/').once('value', (snapshot) => {
           snapshot.forEach(snap => {
             snap.forEach(flat => {
+
+              // if the user is the flat owner
+              if (flat.val() === auth.user.uid) {
+                if (pageToGoTo === JoinOrCreateFlatPage) {
+                  pageToGoTo = Chores
+                }
+              }
+
               flat.forEach(flatmate => {
                 flatmate.forEach(flatmateData => {
 
+                  // if the user is in the flat
                   if (flatmateData.val() === auth.user.uid) {
-                    // should only go to chores page if already have a profile
                     if (pageToGoTo === JoinOrCreateFlatPage) {
                       pageToGoTo = Chores
                     }
