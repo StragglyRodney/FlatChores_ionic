@@ -14,10 +14,10 @@ export class Chores {
   information: any[];
   newJob="";
   constructor(public navCtrl: NavController, public navParams: NavParams, private http: Http,private storage: Storage) {
-    // let localata = this.http.get('assets/information.json').map(res => res.json().items);
-    // localata.subscribe(data => {
-    //   this.information = data;
-    // });
+     let localata = this.http.get('assets/information.json').map(res => res.json().items);
+     localata.subscribe(data => {
+       this.information = data;
+     });
   }
 
   toggleSection(i){
@@ -39,9 +39,13 @@ export class Chores {
    myCallbackFunction = (_params) => {
     return new Promise((resolve, reject) => {
         this.newJob = _params;
+        this.addJob();
         resolve();
     });
    }
    
+   addJob(){
+
+   }
 
 }
