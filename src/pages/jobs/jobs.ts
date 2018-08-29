@@ -4,7 +4,6 @@ import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 import { CreateJobPage } from '../create-job/create-job';
 import { Storage } from '@ionic/storage';
-
 @Component({
   selector: 'page-jobs',
   templateUrl: 'jobs.html'

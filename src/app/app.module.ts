@@ -5,6 +5,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule } from "angularfire2/auth";
+import { IonicStorageModule } from '@ionic/storage';
 
 import { MyApp } from './app.component';
 import { TitlePage } from '../pages/title/title';
@@ -27,7 +28,6 @@ import { HttpModule } from '@angular/http'
 import { PreferencesPage } from '../pages/preferences/preferences';
 import { NotificationsPage } from '../pages/notifications/notifications';
 import { CanvasPage } from '../pages/canvas/canvas';
-import { IonicStorageModule } from '@ionic/storage';
 
 
 @NgModule({
@@ -50,7 +50,6 @@ import { IonicStorageModule } from '@ionic/storage';
     PreferencesPage,
     NotificationsPage,
     CanvasPage,
-
     
   ],
   imports: [
@@ -81,7 +80,8 @@ import { IonicStorageModule } from '@ionic/storage';
     ProfilePage,
     PreferencesPage,
     NotificationsPage,
-    CanvasPage
+    CanvasPage,
+    CreateJobPage
   ],
   providers: [
     StatusBar,
