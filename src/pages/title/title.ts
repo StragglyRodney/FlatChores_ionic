@@ -30,7 +30,7 @@ export class TitlePage {
   }     
 
   getStarted() {
-    this.navCtrl.push(Chores);
+    this.navCtrl.push(HomePage);
 
   }
 

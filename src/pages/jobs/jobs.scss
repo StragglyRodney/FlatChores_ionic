@@ -5,14 +5,14 @@ page-jobs {
         padding: 0% !important;
     }
     .section {
-        background: linear-gradient(to bottom,rgb(80, 227, 194),rgb(59, 167, 143));
+        background:  orange;
         color: #000;
         margin-top: 0px;
         margin-bottom: 0px;
         padding: 30px;
     }
     .section-active {
-        background: linear-gradient(to bottom,rgb(80, 227, 194),rgb(59, 167, 143));
+        background:  orange;
         color: #fff;
         padding: 30px;
     }
@@ -20,11 +20,11 @@ page-jobs {
     .child {
         background: #e8e7e6;
         color: #fff;
-        margin-bottom: 0px;
+        margin-bottom: 0px; 
         
     }
     .child-item {
-        background: linear-gradient(to bottom,rgb(80, 227, 194),rgb(59, 167, 143));
+        background: orange;
         padding: 4px;
         padding: 70px;
 
@@ -54,6 +54,7 @@ page-jobs {
 
     .header{
         margin-bottom: 0px !important;
+        border-top: 0px !important;
     }
 
     .ion-list-header{

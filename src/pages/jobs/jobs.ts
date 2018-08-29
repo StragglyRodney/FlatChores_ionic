@@ -49,6 +49,7 @@ export class Chores {
     this.information.forEach(element => {
       if (element['name'] == this.newJob[0]) {
         this.showToast("Job already exists!!");
+        return;
       }
     });
 
