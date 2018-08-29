@@ -5,6 +5,7 @@ import { DisableSideMenu } from '../../CustomDecorators/disable-side-menu.decora
 import { CanvasPage } from '../canvas/canvas';
 import { Chores } from '../jobs/jobs';
 import { ProfilePage } from '../profile/profile';
+import { PreferencesPage } from '../preferences/preferences';
 
 /**
  * Generated class for the TitlePage page.
@@ -31,7 +32,7 @@ export class TitlePage {
   }     
 
   getStarted() {
-    this.navCtrl.push(ProfilePage);
+    this.navCtrl.push(PreferencesPage);
 
   }
 
