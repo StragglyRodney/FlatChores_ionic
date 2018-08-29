@@ -3,6 +3,8 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ProfilePage } from '../profile/profile';
 import { PreferencesPage } from '../preferences/preferences';
 import { NotificationsPage } from '../notifications/notifications';
+import { AngularFireAuth } from 'angularfire2/auth';
+import { AngularFireDatabase } from 'angularfire2/database';
 
 
 @IonicPage()
@@ -11,11 +13,15 @@ import { NotificationsPage } from '../notifications/notifications';
   templateUrl: 'my-account.html',
 })
 export class MyAccountPage {
+
   selectedItem: any;
   icons: string[];
   items: Array<{title: string, icon: string}>;
+  firstname: String
+  lastname: String
+  username: String
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(private afAuth: AngularFireAuth, private afDatabase: AngularFireDatabase, public navCtrl: NavController, public navParams: NavParams) {
     // If we navigated to this page, we will have an item available as a nav param
     this.selectedItem = navParams.get('item');
 
@@ -37,6 +43,7 @@ export class MyAccountPage {
       title: 'Notifications',
       icon: 'notifications',
     });
+
   }
 
   itemTapped(event, item) {
@@ -47,16 +54,17 @@ export class MyAccountPage {
   }
 
   openPage(page) {
-    if(page === "Profile"){
-    this.navCtrl.push(ProfilePage, { openTab: page.tabPage });
-    } else if (page === "Preferences"){
-      this.navCtrl.push(PreferencesPage, { openTab: page.tabPage });
-    } else if (page === "Notifications"){
-      this.navCtrl.push(NotificationsPage, { openTab: page.tabPage });
-    } else if (page === "Logout"){
+    console.log(page)
+    if(page['title'] === "Profile"){
+    this.navCtrl.push(ProfilePage);
+    } else if (page['title'] === "Preferences"){
+      this.navCtrl.push(PreferencesPage);
+    } else if (page['title'] === "Notifications"){
+      this.navCtrl.push(NotificationsPage);
+    } else if (page['title'] === "Logout"){
       console.log("Logout clicked")
     } 
-    
-    
   }
+
+  
 }

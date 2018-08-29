@@ -14,7 +14,10 @@ import { auth } from 'firebase';
 export class Chores {
 
   information = []
-  
+  firstname: String
+  lastname: String
+  username: String
+
   newJob = "";
   constructor(private afAuth: AngularFireAuth, private afDatabase: AngularFireDatabase, public navCtrl: NavController, public navParams: NavParams, private http: Http, private storage: Storage, private toastCtrl: ToastController) {
     this.afDatabase.database.ref('/flats/flat2/jobs').once('value', (snapshot) => {
@@ -22,7 +25,7 @@ export class Chores {
         this.information.push(snap.val())
       })
     })
-  
+    this.seeProfile();
   }
 
   toggleSection(i) {
@@ -84,35 +87,21 @@ export class Chores {
   }
 
   seeProfile() {
-
     this.afDatabase.database.ref('/profile/').once('value', (snapshot) => {
       snapshot.forEach(profile => {
         if (this.afAuth.auth.currentUser.uid === profile.key) {
-          console.log('Users Name: ', profile.val());
+          console.log('Users Name: ', profile.val())
+          this.firstname = profile.val()["firstname"]
+          this.lastname = profile.val()["lastname"]
+          this.username = profile.val()["username"]
+
         }
+        console.log('First name:', this.firstname)
+        console.log('Last name:', this.lastname)
+        console.log('User name:', this.username)
+
       });
     })
   }
-
-
-  // }).then(() => {
-  //   // see if the user exists in a flat
-  //   this.afDatabase.database.ref('/flats/').once('value', (snapshot) => {
-  //     snapshot.forEach(snap => {
-  //       snap.forEach(flat => {
-  //         flat.forEach(flatmate => {
-  //           flatmate.forEach(flatmateData => {
-  //             if (flatmateData.val() === auth.user.uid) {
-  //               // should only go to chores page if already have a profile
-
-  //             }
-  //           })
-  //         })
-  //       })
-  //     })
-  //   })
-  // }
-  //   , )
-  //}
 
 }
