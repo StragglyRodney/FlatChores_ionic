@@ -3,15 +3,16 @@ import { NavController,  NavParams, Nav} from 'ionic-angular';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 import { CreateJobPage } from '../create-job/create-job';
+import { Storage } from '@ionic/storage';
 @Component({
   selector: 'page-jobs',
   templateUrl: 'jobs.html'
 })
 export class Chores {
   
-  information: any[];
+    information: any[];
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private http: Http) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private http: Http,  private storage: Storage) {
     // let localata = this.http.get('assets/information.json').map(res => res.json().items);
     // localata.subscribe(data => {
     //   this.information = data;
@@ -28,7 +29,9 @@ export class Chores {
   }
 
   createJob(){
-    this.navCtrl.push(CreateJobPage,{},{animate: true, animation: "transition"});
+    this.navCtrl.push(CreateJobPage,{'storage': this.storage},{animate: true, animation: "transition"});
   }
+
+
 
 }

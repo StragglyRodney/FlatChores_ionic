@@ -5,6 +5,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule } from "angularfire2/auth";
+import { IonicStorageModule } from '@ionic/storage';
 
 import { MyApp } from './app.component';
 import { TitlePage } from '../pages/title/title';
@@ -58,7 +59,8 @@ import {CreateJobPage} from '../pages/create-job/create-job';
     AngularFireModule.initializeApp(FIREBASE_CONFIG),
     AngularFireAuthModule,
     AngularFireDatabaseModule,
-    HttpModule
+    HttpModule,
+    IonicStorageModule.forRoot()
   ],
   bootstrap: [IonicApp],
   entryComponents: [
