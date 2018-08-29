@@ -28,14 +28,6 @@ import { HttpModule } from '@angular/http'
 import { PreferencesPage } from '../pages/preferences/preferences';
 import { NotificationsPage } from '../pages/notifications/notifications';
 import { CanvasPage } from '../pages/canvas/canvas';
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-import {CreateJobPage} from '../pages/create-job/create-job';
-=======
-import { IonicStorageModule } from '@ionic/storage';
->>>>>>> origin/stylingBranch
->>>>>>> origin/implementingJobs
 
 
 @NgModule({
@@ -57,16 +49,7 @@ import { IonicStorageModule } from '@ionic/storage';
     ProfilePage,
     PreferencesPage,
     NotificationsPage,
-    CanvasPage,
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-    CreateJobPage
-=======
-
->>>>>>> origin/stylingBranch
->>>>>>> origin/implementingJobs
-    
+    CanvasPage
   ],
   imports: [
     BrowserModule,
