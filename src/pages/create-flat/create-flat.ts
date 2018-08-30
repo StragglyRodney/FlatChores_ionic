@@ -51,6 +51,9 @@ export class CreateFlatPage {
   }
 
   createFlat() {
+    this.flatObject.flatmates = this.flat
+    this.flatObject.name = "flat2"
+    
     this.presentLoadingDefault();
 
     this.afAuth.authState.take(1).subscribe(user => {
