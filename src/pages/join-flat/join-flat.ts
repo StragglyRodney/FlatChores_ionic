@@ -45,11 +45,21 @@ export class JoinFlatPage {
    * added to this flat within the database before displaying the main page of the app
    * */
   joinFlat(){
+
+    let loading = this.loadingCtrl.create({
+      content: 'Please wait...'
+    });
+    
+    loading.present();
+    setTimeout(() => {
+    }, 2000);
+
+    loading.dismiss();
+
     var match: boolean=false;
       this.flat.forEach(element => {
         if(element==this.inputValue){
           match=true;
-         this.showLoading();
           this.navCtrl.setRoot(Chores);
         }
       });
@@ -60,15 +70,6 @@ export class JoinFlatPage {
       //if flat is a match then navigate to the Chores homepage, this is where the database needs to be updated
     }
   }
-
-  showLoading(){
-    const loader = this.loadingCtrl.create({
-      content: "Please wait...",
-      duration: 1000
-    });
-    loader.present();
-  }
-
 
   showToast(message) {
     let toast = this.toastCtrl.create({

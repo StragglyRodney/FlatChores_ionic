@@ -51,20 +51,8 @@ export class CreateFlatPage {
   }
 
   createFlat() {
-    let loading = this.loadingCtrl.create({
-      content: 'Please wait...',
-      dismissOnPageChange: true
-    })
+    this.presentLoadingDefault();
 
-    this.flatObject.flatmates = this.flat
-
-    //REMOVE THESE TWO ANDY. Should be updated via html
-    this.flatObject.name = "flat2"
-
-    // this.flatObject.jobs = null
-
-    //TODO: set profile.flat to this flat
-    
     this.afAuth.authState.take(1).subscribe(user => {
       this.flatObject.ownerID = user.uid;
       this.afDatabase.object(`flats/${this.flatObject.name}`).set(this.flatObject)
@@ -75,7 +63,7 @@ export class CreateFlatPage {
     for (let profile of this.availableUserProfiles) {
       profile
     }
-    this.presentLoadingDefault();
+    
   }
 
   addFlatMate(item) {
@@ -127,8 +115,9 @@ export class CreateFlatPage {
     });
     loading.present();
     setTimeout(() => {
-      loading.dismiss();
     }, 2000);
+
+    loading.dismiss();
   }
 
 }
