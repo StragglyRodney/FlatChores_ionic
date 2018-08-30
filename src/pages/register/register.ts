@@ -26,9 +26,17 @@ export class RegisterPage {
 
   // Can simplify this to be more like the login page
   async register(user: User) {
-    // prevent empty input which caused weird errors with firebase
+    // do invalid input checking now to avoid checking database unnecessarily
     if (user.email == null || user.password == null) {
-      this.showToast("Register details are empty")
+      this.showToast("Login details are empty")
+      return
+    }
+    if (!user.email.includes("@")) {
+      this.showToast("Not a valid email")
+      return
+    }
+    if (user.password.length < 5) {
+      this.showToast("Not a valid password. Must be longer than 5 characters")
       return
     }
 
