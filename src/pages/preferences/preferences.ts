@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
+import { MyAccountPage } from '../my-account/my-account';
 
 /**
  * Generated class for the PreferencesPage page.
@@ -15,11 +16,29 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class PreferencesPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(private loadingCtrl: LoadingController, public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad PreferencesPage');
   }
 
+
+  saveClicked(){
+    console.log("clicked")
+    // display loading animation
+    let loading = this.loadingCtrl.create({
+      spinner: 'ios',
+      content: 'Saving....',
+      duration: 500
+    })
+    loading.present()
+
+    this.previousPage()
+    
+  }
+
+  previousPage(){
+    this.navCtrl.setRoot(MyAccountPage)
+  }
 }

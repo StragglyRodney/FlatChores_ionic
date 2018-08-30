@@ -13,6 +13,26 @@
 </ion-header>
 
 
-<ion-content padding>
+<ion-content>
+  <div class="buttonSection">
+    <div class="inputSection">
+      <h1>Edit Profile</h1>
+      <ion-item>
+        <ion-label color="orange">Frist Name</ion-label>
+        <ion-input placeholder={{firstname}}></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label color="orange">Last Name</ion-label>
+        <ion-input placeholder={{lastname}}></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label color="orange">User Name</ion-label>
+        <ion-input placeholder={{username}}></ion-input>
+      </ion-item>
+    </div>
 
+    <div class="buttonOne">
+      <button ion-button full color=orange (click)="saveClicked()">Save changes</button>
+    </div>
+  </div>
 </ion-content>

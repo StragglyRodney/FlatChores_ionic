@@ -4,6 +4,8 @@ import { HomePage } from '../home/home';
 import { DisableSideMenu } from '../../CustomDecorators/disable-side-menu.decorator';
 import { CanvasPage } from '../canvas/canvas';
 import { Chores } from '../jobs/jobs';
+import { ProfilePage } from '../profile/profile';
+import { PreferencesPage } from '../preferences/preferences';
 
 /**
  * Generated class for the TitlePage page.

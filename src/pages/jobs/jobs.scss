@@ -6,15 +6,17 @@ page-jobs {
     }
     .section {
         background:  orange;
-        color: #000;
         margin-top: 0px;
-        margin-bottom: 0px;
+        margin-bottom: 1px;
         padding: 30px;
+        border: #000;
     }
     .section-active {
         background:  orange;
-        color: #fff;
         padding: 30px;
+        color: #000;
+        margin-bottom: 1px;
+
     }
  
     .child {
@@ -25,8 +27,7 @@ page-jobs {
     }
     .child-item {
         background: orange;
-        padding: 4px;
-        padding: 70px;
+        padding: 20px;
 
     }
     .label {
@@ -53,11 +54,14 @@ page-jobs {
     }
 
     .header{
+        background-color: #000;
         margin-bottom: 0px !important;
         border-top: 0px !important;
     }
 
     .ion-list-header{
+        background-color: #000;
+
         margin-bottom: 0px !important;
     }
 
@@ -79,7 +83,7 @@ page-jobs {
     box-shadow: none;
     height: auto;
     width: auto;
-     margin-top: 5%;
+    margin-top: 5%;
      
 }
 .logoutButton:hover {
@@ -94,8 +98,11 @@ page-jobs {
 .subHeading{
     color: rgb(54, 172, 160);
     font-size: 14px;
-
-    
-
 }
+
+
+.date{
+    color: rgb(54, 172, 160);
+}
+
 }
