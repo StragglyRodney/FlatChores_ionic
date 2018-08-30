@@ -9,6 +9,7 @@ import { Chores } from '../pages/jobs/jobs'; 2
 import { ListPage } from '../pages/list/list';
 import { MyAccountPage } from '../pages/my-account/my-account';
 import { LogoutPage } from '../pages/logout/logout';
+import { AngularFireAuth } from 'angularfire2/auth';
 
 @Component({
   templateUrl: 'app.html'
@@ -21,7 +22,7 @@ export class MyApp {
 
   pages: Array<{ title: string, component: any }>;
 
-  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
+  constructor(private afAuth: AngularFireAuth, public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
     this.initializeApp();
 
     // used for an example of ngFor and navigation
@@ -55,8 +56,11 @@ export class MyApp {
   }
 
   logout(){
-    let currentIndex = this.nav.getActive().index;
-    this.nav.setRoot(TitlePage).then(() => { this.nav.remove(currentIndex);});
+    this.afAuth.auth.signOut().then(() => {
+      this.nav.setRoot(TitlePage);
+    })
+    // let currentIndex = this.nav.getActive().index;
+    // this.nav.setRoot(TitlePage).then(() => { this.nav.remove(currentIndex);});
   }
 }
 
