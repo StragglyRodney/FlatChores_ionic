@@ -60,9 +60,6 @@ export class CreateFlatPage {
         .then(() => this.navCtrl.setRoot(Chores))
     });
 
-    for (let profile of this.availableUserProfiles) {
-      profile
-    }
     
   }
 
