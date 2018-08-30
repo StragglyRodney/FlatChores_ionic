@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { TitlePage } from '../title/title';
 
 /**
  * Generated class for the LogoutPage page.
@@ -20,6 +21,8 @@ export class LogoutPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad LogoutPage');
+     
+    
   }
 
 }
